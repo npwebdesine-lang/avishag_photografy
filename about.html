@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>אודות – Avishag Zeitoun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .about-hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+      @media (min-width: 1024px) {
+        .about-hero-grid {
+          grid-template-columns: 6fr 5fr;
+          gap: 80px;
+        }
+      }
+      .portrait-wrap {
+        position: relative;
+      }
+      .portrait-deco {
+        position: absolute;
+        inset: -16px;
+        background: var(--clr-surface-alt);
+        z-index: -1;
+        transform: translate(16px, 32px);
+      }
+      .services-item {
+        border-bottom: 1px solid rgba(209, 196, 188, 0.4);
+        padding-bottom: 24px;
+        cursor: pointer;
+      }
+      .services-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .services-item-desc {
+        font-family: var(--font-sans);
+        font-size: 15px;
+        color: var(--clr-on-surface-var);
+        margin-top: 12px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+      .services-item:hover .services-item-desc {
+        max-height: 100px;
+      }
+      .detail-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      @media (min-width: 768px) {
+        .detail-strip {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="main-nav" class="scrolled">
+      <div class="nav-inner">
+        <a class="nav-logo" href="index.html"
+          ><img id="nav-logo-img" src="" alt="Elite Captures"
+        /></a>
+        <ul class="nav-links">
+          <li><a href="index.html">בית</a></li>
+          <li><a href="portfolio.html">תיק עבודות</a></li>
+          <li><a href="about.html" class="active">אודות</a></li>
+          <li><a href="contact.html">צור קשר</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a
+            id="nav-ig"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="nav-ig-link"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <button class="btn-book" data-open-modal>הזמן סשן</button>
+        </div>
+        <button id="hamburger-btn" class="nav-hamburger" aria-label="פתח תפריט">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer">
+      <button
+        id="drawer-close"
+        class="nav-hamburger"
+        style="position: absolute; top: 20px; left: 24px"
+        aria-label="סגור"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <ul class="drawer-links">
+        <li><a href="index.html">בית</a></li>
+        <li><a href="portfolio.html">תיק עבודות</a></li>
+        <li><a href="about.html" class="active">אודות</a></li>
+        <li><a href="contact.html">צור קשר</a></li>
+      </ul>
+      <div class="drawer-bottom">
+        <button class="btn-book-full" data-open-modal>הזמן סשן</button>
+        <a
+          id="drawer-ig"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="drawer-ig"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+          <span style="font-family: var(--font-sans); font-size: 16px"
+            >Instagram</span
+          >
+        </a>
+      </div>
+    </div>
+
+    <main style="padding-top: 96px; padding-bottom: 128px">
+      <!-- ── Hero: Story ─────────────────────────────────────────────────────── -->
+      <section style="padding-block: clamp(60px, 10vw, 120px)">
+        <div class="section-inner">
+          <div class="about-hero-grid">
+            <!-- Portrait (appears first visually = right in RTL at desktop) -->
+            <div class="portrait-wrap reveal" style="order: 1">
+              <div class="portrait-deco"></div>
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFry41P6PshUYl_XwOxjnSLcy0DVuUc37pmCb2u3Alq58_TUPR39UPTLto_JT5BFjj5M1pY_dqiJJ2_zNDM7r3yxVT1IURhMcxR6oY7fErhktIri_T2shbzVaSDgQzgX1MK5ugjbOjjCDiJ9FS2Ag8anRO9qnaL2cYhmTXUeRspBkeW3mwdv3HMRzL7e-k_7_Kq_-94dA6boli5qN4ju5K5itTCWQflxGrB07K2omu06qLN1RymDdOLGXnDn8aAEcyMunrQ3QsG80"
+                alt="פורטרט הצלמת"
+                loading="lazy"
+                style="
+                  width: 100%;
+                  height: auto;
+                  aspect-ratio: 3/4;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <!-- Text -->
+            <div
+              class="reveal"
+              style="
+                order: 2;
+                display: flex;
+                flex-direction: column;
+                gap: 28px;
+                transition-delay: 200ms;
+              "
+            >
+              <span class="section-label" style="margin-bottom: 0">האמנית</span>
+              <h1
+                style="
+                  font-family: var(--font-serif);
+                  font-size: clamp(36px, 5.5vw, 64px);
+                  letter-spacing: -0.02em;
+                  color: var(--clr-primary);
+                  margin: 0;
+                  line-height: 1.1;
+                "
+              >
+                הסיפור שמאחורי העדשה.
+              </h1>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 20px;
+                  font-family: var(--font-sans);
+                  font-size: 17px;
+                  color: var(--clr-on-surface-var);
+                  line-height: 1.7;
+                "
+              >
+                <p style="margin: 0">
+                  צילום עבורי הוא לא רק תיעוד רגעים, הוא לכידת המהות השקטה של
+                  הנוכחות. כל פריים הוא שיר אילם, חיפוש אחר האור המדויק שחושף את
+                  האמת הפנימית.
+                </p>
+                <p style="margin: 0">
+                  אני מאמינה ביופי של פשטות, בכוחו של המינימליזם להעצים את הרגש.
+                  הגישה העריכתית שלי שואבת השראה מציור קלאסי — קומפוזיציות נקיות
+                  וגוונים חמים שמרגישים אל-זמניים.
+                </p>
+              </div>
+              <div>
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhRLauWCE7hvbm3nNUm6HEntTR6hUO9T5YyXKQVVPwKjFy30buw9XSrzeDQXs4vWIXe9q_rjffk1FxIUOa4b-kBMcr9U6VJe6g6hdL8pT-v4MEeV6JFtZSZrNb7t139jsfBGK98Bc2FSodwIdkiFWRE1z2qhkF_btV39QUrIJjDy_9VCcnTQwXXEaFxqG_jx5dYpizMkZwFuv_qK2wTzx767Ia9amDIkyN5p2gQa2tqjRbJU5QjBseEQvHDbG9J1WZI0e1Q1FKfpU"
+                  alt="חתימה"
+                  loading="lazy"
+                  style="height: 56px; width: auto; opacity: 0.75"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Approach & Services ─────────────────────────────────────────────── -->
+      <section style="padding-block: clamp(40px, 6vw, 80px)">
+        <div class="section-inner">
+          <div
+            style="
+              background: var(--clr-surface-alt);
+              padding: clamp(32px, 5vw, 96px);
+            "
+          >
+            <div style="display: grid; grid-template-columns: 1fr; gap: 64px">
+              <!-- Approach -->
+              <div class="reveal">
+                <span class="section-label">הגישה שלי</span>
+                <h2
+                  style="
+                    font-family: var(--font-serif);
+                    font-size: clamp(24px, 3vw, 32px);
+                    color: var(--clr-primary);
+                    margin: 0 0 24px;
+                  "
+                >
+                  אינטימיות מעוצבת.
+                </h2>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 16px;
+                    color: var(--clr-on-surface-var);
+                    line-height: 1.7;
+                    margin: 0 0 24px;
+                  "
+                >
+                  אני ניגשת לכל סשן כפרויקט אמנותי ייחודי. אנחנו מתחילים בהבנת
+                  החזון שלכם, וממשיכים בתהליך מוקפד של בחירת לוקיישנים, תאורה
+                  וסטיילינג. המטרה היא ליצור סביבה טבעית המאפשרת לכם להיות אתם.
+                </p>
+                <ul
+                  style="
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                  "
+                >
+                  <li
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 12px;
+                      font-family: var(--font-sans);
+                      font-size: 16px;
+                      color: var(--clr-on-surface-var);
+                    "
+                  >
+                    <span
+                      style="
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        background: var(--clr-secondary);
+                        flex-shrink: 0;
+                      "
+                    ></span
+                    >פגישת קונספט מקדימה
+                  </li>
+                  <li
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 12px;
+                      font-family: var(--font-sans);
+                      font-size: 16px;
+                      color: var(--clr-on-surface-var);
+                    "
+                  >
+                    <span
+                      style="
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        background: var(--clr-secondary);
+                        flex-shrink: 0;
+                      "
+                    ></span
+                    >הכוונה טבעית במהלך הצילום
+                  </li>
+                  <li
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 12px;
+                      font-family: var(--font-sans);
+                      font-size: 16px;
+                      color: var(--clr-on-surface-var);
+                    "
+                  >
+                    <span
+                      style="
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        background: var(--clr-secondary);
+                        flex-shrink: 0;
+                      "
+                    ></span
+                    >עריכה קפדנית בסגנון פילם
+                  </li>
+                </ul>
+              </div>
+              <!-- Services -->
+              <div class="reveal" style="transition-delay: 200ms">
+                <span class="section-label">שירותים</span>
+                <div style="display: flex; flex-direction: column; gap: 24px">
+                  <div class="services-item">
+                    <div class="services-item-header">
+                      <h3
+                        style="
+                          font-family: var(--font-serif);
+                          font-size: 24px;
+                          color: var(--clr-primary);
+                          margin: 0;
+                          transition: color 0.3s;
+                        "
+                        onmouseover="this.style.color = 'var(--clr-secondary)'"
+                        onmouseout="this.style.color = 'var(--clr-primary)'"
+                      >
+                        פורטרט אישי
+                      </h3>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        style="color: var(--clr-outline)"
+                      >
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                      </svg>
+                    </div>
+                    <p class="services-item-desc">
+                      סשן אינטימי המתמקד בהבעה האישית שלך. מתאים לאמנים, אנשי
+                      עסקים וכל מי שמחפש תיעוד עמוק של עצמו.
+                    </p>
+                  </div>
+                  <div class="services-item">
+                    <div class="services-item-header">
+                      <h3
+                        style="
+                          font-family: var(--font-serif);
+                          font-size: 24px;
+                          color: var(--clr-primary);
+                          margin: 0;
+                          transition: color 0.3s;
+                        "
+                        onmouseover="this.style.color = 'var(--clr-secondary)'"
+                        onmouseout="this.style.color = 'var(--clr-primary)'"
+                      >
+                        זוגיות ומשפחה
+                      </h3>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        style="color: var(--clr-outline)"
+                      >
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="services-item">
+                    <div class="services-item-header">
+                      <h3
+                        style="
+                          font-family: var(--font-serif);
+                          font-size: 24px;
+                          color: var(--clr-primary);
+                          margin: 0;
+                          transition: color 0.3s;
+                        "
+                        onmouseover="this.style.color = 'var(--clr-secondary)'"
+                        onmouseout="this.style.color = 'var(--clr-primary)'"
+                      >
+                        אדיטוריאל ואופנה
+                      </h3>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        style="color: var(--clr-outline)"
+                      >
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Detail image strip ────────────────────────────────────────────── -->
+      <section class="reveal" style="padding-block: 40px 0">
+        <div class="section-inner">
+          <div class="detail-strip">
+            <div style="overflow: hidden">
+              <img
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5lCEVz1mBYcOp8mTvkSpEoy31B7UH76bFodfpZ1LJivFQ7RAoHcjKfO_KFU9n9YLJ0SzSSyKUeNFCJp7qFilmlyV2XxJo638dUAnxdHJsSu7p75e0-yLr2sdwm2xUQJ8z-QggS45AmiQz4VuF60p_Lg5NvMxrMUql8QS-N149ILsPfl3U6lnTB6mvsrJrp1eU8kzuDidjKfssxpIHgqNLI_4ioBul59U4AAqyGuExXNen_PzVgw3m2Z4K4vtJI2bKbj63AigO8g4"
+                alt="מצלמת פילם"
+                style="
+                  width: 100%;
+                  height: 220px;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                  display: block;
+                "
+                onmouseover="this.style.transform = 'scale(1.06)'"
+                onmouseout="this.style.transform = 'scale(1)'"
+              />
+            </div>
+            <div style="overflow: hidden; display: none" class="md-show">
+              <img
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVBhpfsX1j7Q-KtcWD5z2arICFoLmBnBiZLK5YFPApAIZlhitBg5VGJwCLcKfmxzL3qdKkKapEgSVOS3t0X44uwMkShgumn7oH4Vg8wjIlniwvt6_1twvQz_DHS3ubJ2SoPq5x1tDT1BTzlY1a3uAaLbNaJcBKwOCX19Zt4vmNQOihLQVUBR2Ej9KnqOMJuXGr2fbDIcyCeHt0S37NE1-y6dZgXW_JA8MLOtX_fxEewzozYgcpHM8aI16aL1PeYDDoo4Lc2ZiLwE4"
+                alt="צלליות"
+                style="
+                  width: 100%;
+                  height: 220px;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                  display: block;
+                "
+                onmouseover="this.style.transform = 'scale(1.06)'"
+                onmouseout="this.style.transform = 'scale(1)'"
+              />
+            </div>
+            <div style="overflow: hidden">
+              <img
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYDrPc1SLYUHe7gmHsHwF1rvKSUFrno1G5wEST5qaZfOMBPnYWuORsF9Q7yJvaDln5pi1E4Vy-VOiL08GKMRPUqwxMV0Us3hqHdNyoVzqiqB9pIX_XSUL4JGmq7HWIDI8aEvddiBoCGtgWvx58-W2HgewFlgsEo-rd61BqWzQt39c1mewOfwnExoj4uDLxOLZogb7aisINxIKIDH0JU4s5GisPy8BAIlsTCJOGMqjanNP_QEo79Am20I10tl0hfEJxXNWKPiUbeNg"
+                alt="פרח יבש"
+                style="
+                  width: 100%;
+                  height: 220px;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                  display: block;
+                "
+                onmouseover="this.style.transform = 'scale(1.06)'"
+                onmouseout="this.style.transform = 'scale(1)'"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <a class="footer-logo" href="index.html"
+        ><img id="footer-logo-img" src="" alt="Elite Captures"
+      /></a>
+      <ul class="footer-nav">
+        <li><a href="index.html">בית</a></li>
+        <li><a href="portfolio.html">תיק עבודות</a></li>
+        <li><a href="about.html">אודות</a></li>
+        <li><a href="contact.html">צור קשר</a></li>
+      </ul>
+      <div class="footer-ig-row">
+        <a
+          id="footer-ig"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="footer-ig-btn"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </a>
+        <span class="footer-ig-label">Instagram</span>
+      </div>
+
+      <p class="footer-copy">
+        © כל הזכויות שמורות לאבישג זייתון <span id="year"></span>.
+      </p>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" role="dialog" aria-modal="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-panel">
+        <button id="modal-close" class="modal-close" aria-label="סגור">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <h2 class="modal-title">הזמן סשן</h2>
+        <div id="modal-form">
+          <div class="step-dots">
+            <div class="step-dot active"></div>
+            <div class="step-dot"></div>
+          </div>
+          <div id="modal-form-step1" class="form-step">
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 22px;
+                color: var(--clr-primary);
+                margin: 0 0 16px;
+              "
+            >
+              איזה סשן מעניין אותך?
+            </p>
+            <button class="session-btn" data-session="pre-event">
+              <div>
+                <div class="session-label">בוק שלפני האירוע</div>
+                <div class="session-desc">צילום זוגי לפני החתונה</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="proposals">
+              <div>
+                <div class="session-label">הצעת נישואין</div>
+                <div class="session-desc">רגע שלא ישכח לעולם</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="bar-mitzvah">
+              <div>
+                <div class="session-label">בר / בת מצווה</div>
+                <div class="session-desc">חגיגת נעורים עם סגנון</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="portrait">
+              <div>
+                <div class="session-label">פורטרט אישי</div>
+                <div class="session-desc">לאמנים ואנשי עסקים</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+          </div>
+          <div id="modal-form-step2" class="form-step">
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 22px;
+                color: var(--clr-primary);
+                margin: 0 0 16px;
+              "
+            >
+              השאירו פרטים
+            </p>
+            <form>
+              <div class="form-row" style="margin-bottom: 16px">
+                <input
+                  class="input-field"
+                  type="text"
+                  name="name"
+                  placeholder="שם מלא *"
+                  required
+                /><input
+                  class="input-field"
+                  type="tel"
+                  name="phone"
+                  placeholder="05X-XXXXXXX *"
+                  dir="ltr"
+                  style="text-align: right"
+                  required
+                />
+              </div>
+              <div style="margin-bottom: 16px">
+                <input
+                  class="input-field"
+                  type="date"
+                  name="date"
+                  style="color-scheme: light"
+                />
+              </div>
+              <textarea
+                class="input-field"
+                name="message"
+                rows="3"
+                placeholder="ספרו לנו קצת על החזון שלכם..."
+                style="margin-bottom: 4px"
+              ></textarea>
+              <button class="btn-submit" type="submit">שלח לוואצאפ ←</button>
+              <button class="btn-back" type="button">→ חזור</button>
+            </form>
+          </div>
+          <div
+            id="modal-form-success"
+            class="form-success"
+            style="display: none"
+          >
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <h3>הפניה נשלחה לוואצאפ!</h3>
+            <p>אם החלון לא נפתח, בדקו שחסימת פופ-אפ כבויה.</p>
+            <button class="btn-reset">שליחה נוספת</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/gallery-data.js"></script>
+    <script>
+      document
+        .querySelectorAll('[id$="-ig"]')
+        .forEach((el) => (el.href = SITE_CONFIG.instagramUrl));
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Show middle detail image on md+
+      if (window.innerWidth >= 768) {
+        document.querySelector(".md-show").style.display = "block";
+      }
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

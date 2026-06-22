@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>תיק עבודות – Avishag Zeitoun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="main-nav" class="scrolled">
+      <div class="nav-inner">
+        <a class="nav-logo" href="index.html"
+          ><img id="nav-logo-img" src="" alt="Avishag Zeitoun"
+        /></a>
+        <ul class="nav-links">
+          <li><a href="index.html">בית</a></li>
+          <li><a href="portfolio.html" class="active">תיק עבודות</a></li>
+          <li><a href="about.html">אודות</a></li>
+          <li><a href="contact.html">צור קשר</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a
+            id="nav-ig"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="nav-ig-link"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <button class="btn-book" data-open-modal>הזמן סשן</button>
+        </div>
+        <button id="hamburger-btn" class="nav-hamburger" aria-label="פתח תפריט">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer">
+      <button
+        id="drawer-close"
+        class="nav-hamburger"
+        style="position: absolute; top: 20px; left: 24px"
+        aria-label="סגור"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <ul class="drawer-links">
+        <li><a href="index.html">בית</a></li>
+        <li><a href="portfolio.html" class="active">תיק עבודות</a></li>
+        <li><a href="about.html">אודות</a></li>
+        <li><a href="contact.html">צור קשר</a></li>
+      </ul>
+      <div class="drawer-bottom">
+        <button class="btn-book-full" data-open-modal>הזמן סשן</button>
+        <a
+          id="drawer-ig"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="drawer-ig"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+          <span style="font-family: var(--font-sans); font-size: 16px"
+            >Instagram</span
+          >
+        </a>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <main style="padding-top: 120px; padding-bottom: 96px">
+      <div class="section-inner">
+        <!-- Header -->
+        <header class="reveal" style="margin-bottom: 64px; text-align: center">
+          <h1
+            style="
+              font-family: var(--font-serif);
+              font-size: clamp(36px, 6vw, 64px);
+              color: var(--clr-primary);
+              margin: 0 0 16px;
+              letter-spacing: -0.02em;
+            "
+          >
+            תיק עבודות
+          </h1>
+          <p
+            style="
+              font-family: var(--font-sans);
+              font-size: 18px;
+              color: var(--clr-on-surface-var);
+              max-width: 600px;
+              margin: 0 auto;
+              text-align: right;
+            "
+          >
+            אוסף רגעים נבחרים, מתועדים בקפידה מתוך אהבה לאסתטיקה ורגש. כל תמונה
+            מספרת סיפור ייחודי, נלכדת באור המושלם ובזווית המדויקת.
+          </p>
+        </header>
+
+        <!-- Filter tabs -->
+        <div
+          class="filter-tabs reveal"
+          id="filter-tabs"
+          style="transition-delay: 100ms"
+        ></div>
+
+        <!-- Masonry grid — rendered by JS -->
+        <div class="masonry-grid" id="gallery-grid"></div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <a class="footer-logo" href="index.html"
+        ><img id="footer-logo-img" src="" alt="Avishag Zeitoun"
+      /></a>
+      <ul class="footer-nav">
+        <li><a href="index.html">בית</a></li>
+        <li><a href="portfolio.html">תיק עבודות</a></li>
+        <li><a href="about.html">אודות</a></li>
+        <li><a href="contact.html">צור קשר</a></li>
+      </ul>
+      <div class="footer-ig-row">
+        <a
+          id="footer-ig"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="footer-ig-btn"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </a>
+        <span class="footer-ig-label">Instagram</span>
+      </div>
+
+      <p class="footer-copy">
+        © כל הזכויות שמורות לאבישג זייתון <span id="year"></span>.
+      </p>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" role="dialog" aria-modal="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-panel">
+        <button id="modal-close" class="modal-close" aria-label="סגור">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <h2 class="modal-title">הזמן סשן</h2>
+        <div id="modal-form">
+          <div class="step-dots">
+            <div class="step-dot active"></div>
+            <div class="step-dot"></div>
+          </div>
+          <div id="modal-form-step1" class="form-step">
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 22px;
+                color: var(--clr-primary);
+                margin: 0 0 16px;
+              "
+            >
+              איזה סשן מעניין אותך?
+            </p>
+            <button class="session-btn" data-session="pre-event">
+              <div>
+                <div class="session-label">בוק שלפני האירוע</div>
+                <div class="session-desc">צילום זוגי לפני החתונה</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="proposals">
+              <div>
+                <div class="session-label">הצעת נישואין</div>
+                <div class="session-desc">רגע שלא ישכח לעולם</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="bar-mitzvah">
+              <div>
+                <div class="session-label">בר / בת מצווה</div>
+                <div class="session-desc">חגיגת נעורים עם סגנון</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="portrait">
+              <div>
+                <div class="session-label">פורטרט אישי</div>
+                <div class="session-desc">לאמנים ואנשי עסקים</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+          </div>
+          <div id="modal-form-step2" class="form-step">
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 22px;
+                color: var(--clr-primary);
+                margin: 0 0 16px;
+              "
+            >
+              השאירו פרטים
+            </p>
+            <form>
+              <div class="form-row" style="margin-bottom: 16px">
+                <input
+                  class="input-field"
+                  type="text"
+                  name="name"
+                  placeholder="שם מלא *"
+                  required
+                />
+                <input
+                  class="input-field"
+                  type="tel"
+                  name="phone"
+                  placeholder="05X-XXXXXXX *"
+                  dir="ltr"
+                  style="text-align: right"
+                  required
+                />
+              </div>
+              <div style="margin-bottom: 16px">
+                <input
+                  class="input-field"
+                  type="date"
+                  name="date"
+                  style="color-scheme: light"
+                />
+              </div>
+              <textarea
+                class="input-field"
+                name="message"
+                rows="3"
+                placeholder="ספרו לנו קצת על החזון שלכם..."
+                style="margin-bottom: 4px"
+              ></textarea>
+              <button class="btn-submit" type="submit">שלח לוואצאפ ←</button>
+              <button class="btn-back" type="button">→ חזור</button>
+            </form>
+          </div>
+          <div
+            id="modal-form-success"
+            class="form-success"
+            style="display: none"
+          >
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <h3>הפניה נשלחה לוואצאפ!</h3>
+            <p>אם החלון לא נפתח, בדקו שחסימת פופ-אפ כבויה.</p>
+            <button class="btn-reset">שליחה נוספת</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/gallery-data.js"></script>
+    <script>
+      document
+        .querySelectorAll('[id$="-ig"]')
+        .forEach((el) => (el.href = SITE_CONFIG.instagramUrl));
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // ── Build filter tabs ─────────────────────────────────────────────────────
+      const tabsEl = document.getElementById("filter-tabs");
+      GALLERY_CATEGORIES.forEach(({ id, label }) => {
+        const btn = document.createElement("button");
+        btn.className = "filter-tab" + (id === "all" ? " active" : "");
+        btn.dataset.category = id;
+        btn.textContent = label;
+        tabsEl.appendChild(btn);
+      });
+
+      // ── Build masonry grid ────────────────────────────────────────────────────
+      const gridEl = document.getElementById("gallery-grid");
+      let activeCategory = "all";
+
+      function renderGallery() {
+        const items =
+          activeCategory === "all"
+            ? GALLERY_ITEMS
+            : GALLERY_ITEMS.filter((i) => i.category === activeCategory);
+
+        gridEl.style.opacity = "0";
+        setTimeout(() => {
+          gridEl.innerHTML = "";
+          items.forEach((item) => {
+            gridEl.innerHTML += `
+          <div class="masonry-item">
+            <img loading="lazy" src="${item.src}" alt="${item.alt}" />
+            <div class="masonry-item-overlay">
+              <span class="masonry-item-caption">${item.alt}</span>
+            </div>
+          </div>`;
+          });
+          gridEl.style.opacity = "1";
+        }, 200);
+      }
+
+      tabsEl.addEventListener("click", (e) => {
+        const btn = e.target.closest(".filter-tab");
+        if (!btn) return;
+        document
+          .querySelectorAll(".filter-tab")
+          .forEach((t) => t.classList.remove("active"));
+        btn.classList.add("active");
+        activeCategory = btn.dataset.category;
+        renderGallery();
+      });
+
+      renderGallery();
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>צור קשר – Avishag Zeitoun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+      @media (min-width: 768px) {
+        .contact-grid {
+          grid-template-columns: 5fr 6fr;
+          gap: 80px;
+        }
+      }
+      .contact-info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .contact-info-item svg {
+        color: var(--clr-secondary);
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+      .contact-info-label {
+        font-family: var(--font-sans);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--clr-on-surface-var);
+        margin-bottom: 4px;
+      }
+      .contact-info-value {
+        font-family: var(--font-sans);
+        font-size: 16px;
+        color: var(--clr-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="main-nav" class="scrolled">
+      <div class="nav-inner">
+        <a class="nav-logo" href="index.html"
+          ><img id="nav-logo-img" src="" alt="Elite Captures"
+        /></a>
+        <ul class="nav-links">
+          <li><a href="index.html">בית</a></li>
+          <li><a href="portfolio.html">תיק עבודות</a></li>
+          <li><a href="about.html">אודות</a></li>
+          <li><a href="contact.html" class="active">צור קשר</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a
+            id="nav-ig"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="nav-ig-link"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <button class="btn-book" data-open-modal>הזמן סשן</button>
+        </div>
+        <button id="hamburger-btn" class="nav-hamburger" aria-label="פתח תפריט">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer">
+      <button
+        id="drawer-close"
+        class="nav-hamburger"
+        style="position: absolute; top: 20px; left: 24px"
+        aria-label="סגור"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <ul class="drawer-links">
+        <li><a href="index.html">בית</a></li>
+        <li><a href="portfolio.html">תיק עבודות</a></li>
+        <li><a href="about.html">אודות</a></li>
+        <li><a href="contact.html" class="active">צור קשר</a></li>
+      </ul>
+      <div class="drawer-bottom">
+        <button class="btn-book-full" data-open-modal>הזמן סשן</button>
+        <a
+          id="drawer-ig"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="drawer-ig"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+          <span style="font-family: var(--font-sans); font-size: 16px"
+            >Instagram</span
+          >
+        </a>
+      </div>
+    </div>
+
+    <main
+      style="
+        padding-top: 120px;
+        padding-bottom: 96px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      "
+    >
+      <div class="section-inner" style="flex: 1">
+        <!-- Header -->
+        <div class="reveal" style="text-align: center; margin-bottom: 80px">
+          <h1
+            style="
+              font-family: var(--font-serif);
+              font-size: clamp(36px, 6vw, 64px);
+              color: var(--clr-primary);
+              margin: 0 0 16px;
+              letter-spacing: -0.02em;
+            "
+          >
+            בואו ננציח את הרגע שלכם
+          </h1>
+          <p
+            style="
+              font-family: var(--font-sans);
+              font-size: 18px;
+              color: var(--clr-on-surface-var);
+              max-width: 560px;
+              margin: 0 auto;
+              line-height: 1.6;
+            "
+          >
+            אנו מזמינים אתכם ליצור קשר כדי לתכנן יחד את התיעוד המושלם עבורכם.
+          </p>
+        </div>
+
+        <!-- Split layout -->
+        <div class="contact-grid">
+          <!-- Left col (image + info) — order-1 on mobile shows first -->
+          <div
+            class="reveal"
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 32px;
+              transition-delay: 200ms;
+            "
+          >
+            <!-- Studio photo -->
+            <div
+              style="
+                position: relative;
+                aspect-ratio: 4/5;
+                overflow: hidden;
+                background: var(--clr-surface-alt);
+              "
+            >
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuACY7sdiRO7FCgHLGBVxZU4tWOWXswnMg2LxkVka5TlcgelRu_uQasHnTyJA0sNrXFEB8p8ZKxzcjp5edRxvgX1VPqwbYzp47-pWp2IfYdySoVnqyVO7PcSL1NIV7S0S8KPesrNGITIv55D6tJvmBRAawzgBLDtX0pcmV7fWX1jIYeM95knx1b4_avv3M9pbqD145PHMJY1cgjoQslDVoORiCf9ClRlgy_o2xdgzm2sJrZiP52XXHW4hQPmq2kKveHUJpZtAY1M2Kg"
+                alt="סטודיו הצילום"
+                loading="lazy"
+                style="
+                  position: absolute;
+                  inset: 0;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  filter: grayscale(15%);
+                  transition: filter 0.7s;
+                "
+                onmouseover="this.style.filter = 'grayscale(0)'"
+                onmouseout="this.style.filter = 'grayscale(15%)'"
+              />
+            </div>
+
+            <!-- Contact info -->
+            <ul
+              style="
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+              "
+            >
+              <li class="contact-info-item">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.59 3.18 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.91 5.91l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                <div>
+                  <div class="contact-info-label">טלפון לבירורים</div>
+                  <a
+                    href="tel:+972501234567"
+                    class="contact-info-value"
+                    dir="ltr"
+                    style="display: block; transition: color 0.25s"
+                    onmouseover="this.style.color = 'var(--clr-secondary)'"
+                    onmouseout="this.style.color = 'var(--clr-primary)'"
+                    >+972 50 123 4567</a
+                  >
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <div>
+                  <div class="contact-info-label">דוא"ל עסקי</div>
+                  <a
+                    href="mailto:studio@elitecaptures.com"
+                    class="contact-info-value"
+                    style="transition: color 0.25s"
+                    onmouseover="this.style.color = 'var(--clr-secondary)'"
+                    onmouseout="this.style.color = 'var(--clr-primary)'"
+                    >studio@elitecaptures.com</a
+                  >
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <div>
+                  <div class="contact-info-label">סטודיו</div>
+                  <p class="contact-info-value" style="margin: 0">
+                    רחוב האמנים 12, תל אביב-יפו<br /><span
+                      style="font-size: 13px; color: rgba(78, 69, 63, 0.65)"
+                      >(בתיאום מראש בלבד)</span
+                    >
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Instagram CTA -->
+            <a
+              id="contact-ig-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="ig-contact-link"
+            >
+              <div class="ig-icon">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </div>
+              <div>
+                <div
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 11px;
+                    font-weight: 600;
+                    letter-spacing: 0.14em;
+                    text-transform: uppercase;
+                    margin-bottom: 2px;
+                  "
+                >
+                  עקבו אחרינו
+                </div>
+                <div style="font-family: var(--font-sans); font-size: 16px">
+                  @elitecaptures
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Right col (form) -->
+          <div class="reveal">
+            <div
+              style="
+                background: var(--clr-surface-alt);
+                padding: clamp(24px, 5vw, 48px);
+              "
+            >
+              <h2
+                style="
+                  font-family: var(--font-serif);
+                  font-size: 24px;
+                  color: var(--clr-primary);
+                  margin: 0 0 32px;
+                  border-bottom: 1px solid rgba(107, 92, 78, 0.2);
+                  padding-bottom: 16px;
+                  display: inline-block;
+                "
+              >
+                השאירו פרטים
+              </h2>
+
+              <!-- Inline multi-step form -->
+              <div id="contact-form">
+                <div class="step-dots">
+                  <div class="step-dot active"></div>
+                  <div class="step-dot"></div>
+                </div>
+                <!-- Step 1 -->
+                <div id="contact-form-step1" class="form-step">
+                  <p
+                    style="
+                      font-family: var(--font-serif);
+                      font-size: 20px;
+                      color: var(--clr-primary);
+                      margin: 0 0 16px;
+                    "
+                  >
+                    איזה סשן מעניין אותך?
+                  </p>
+                  <button class="session-btn" data-session="pre-event">
+                    <div>
+                      <div class="session-label">בוק שלפני האירוע</div>
+                      <div class="session-desc">צילום זוגי לפני החתונה</div>
+                    </div>
+                    <span class="session-btn-arrow">←</span>
+                  </button>
+                  <button class="session-btn" data-session="proposals">
+                    <div>
+                      <div class="session-label">הצעת נישואין</div>
+                      <div class="session-desc">רגע שלא ישכח לעולם</div>
+                    </div>
+                    <span class="session-btn-arrow">←</span>
+                  </button>
+                  <button class="session-btn" data-session="bar-mitzvah">
+                    <div>
+                      <div class="session-label">בר / בת מצווה</div>
+                      <div class="session-desc">חגיגת נעורים עם סגנון</div>
+                    </div>
+                    <span class="session-btn-arrow">←</span>
+                  </button>
+                  <button class="session-btn" data-session="portrait">
+                    <div>
+                      <div class="session-label">פורטרט אישי</div>
+                      <div class="session-desc">לאמנים ואנשי עסקים</div>
+                    </div>
+                    <span class="session-btn-arrow">←</span>
+                  </button>
+                </div>
+                <!-- Step 2 -->
+                <div id="contact-form-step2" class="form-step">
+                  <p
+                    style="
+                      font-family: var(--font-serif);
+                      font-size: 20px;
+                      color: var(--clr-primary);
+                      margin: 0 0 16px;
+                    "
+                  >
+                    פרטי יצירת קשר
+                  </p>
+                  <form>
+                    <div class="form-row" style="margin-bottom: 20px">
+                      <div>
+                        <label
+                          style="
+                            display: block;
+                            font-family: var(--font-sans);
+                            font-size: 11px;
+                            font-weight: 600;
+                            letter-spacing: 0.13em;
+                            text-transform: uppercase;
+                            color: var(--clr-on-surface-var);
+                            margin-bottom: 8px;
+                          "
+                          >שם מלא *</label
+                        ><input
+                          class="input-field"
+                          type="text"
+                          name="name"
+                          placeholder="שם מלא"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label
+                          style="
+                            display: block;
+                            font-family: var(--font-sans);
+                            font-size: 11px;
+                            font-weight: 600;
+                            letter-spacing: 0.13em;
+                            text-transform: uppercase;
+                            color: var(--clr-on-surface-var);
+                            margin-bottom: 8px;
+                          "
+                          >טלפון *</label
+                        ><input
+                          class="input-field"
+                          type="tel"
+                          name="phone"
+                          placeholder="05X-XXXXXXX"
+                          dir="ltr"
+                          style="text-align: right"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div style="margin-bottom: 20px">
+                      <label
+                        style="
+                          display: block;
+                          font-family: var(--font-sans);
+                          font-size: 11px;
+                          font-weight: 600;
+                          letter-spacing: 0.13em;
+                          text-transform: uppercase;
+                          color: var(--clr-on-surface-var);
+                          margin-bottom: 8px;
+                        "
+                        >תאריך מועדף</label
+                      >
+                      <input
+                        class="input-field"
+                        type="date"
+                        name="date"
+                        style="color-scheme: light"
+                      />
+                    </div>
+                    <div style="margin-bottom: 4px">
+                      <label
+                        style="
+                          display: block;
+                          font-family: var(--font-sans);
+                          font-size: 11px;
+                          font-weight: 600;
+                          letter-spacing: 0.13em;
+                          text-transform: uppercase;
+                          color: var(--clr-on-surface-var);
+                          margin-bottom: 8px;
+                        "
+                        >פרטים נוספים</label
+                      >
+                      <textarea
+                        class="input-field"
+                        name="message"
+                        rows="4"
+                        placeholder="ספרו לנו קצת על החזון שלכם..."
+                      ></textarea>
+                    </div>
+                    <button class="btn-submit" type="submit">
+                      שלח לוואצאפ ←
+                    </button>
+                    <button class="btn-back" type="button">→ חזור</button>
+                  </form>
+                </div>
+                <!-- Success -->
+                <div
+                  id="contact-form-success"
+                  class="form-success"
+                  style="display: none"
+                >
+                  <svg
+                    width="56"
+                    height="56"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <h3>הפניה נשלחה לוואצאפ!</h3>
+                  <p>אם החלון לא נפתח, בדקו שחסימת פופ-אפ כבויה.</p>
+                  <button class="btn-reset">שליחה נוספת</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <a class="footer-logo" href="index.html"
+        ><img id="footer-logo-img" src="" alt="Elite Captures"
+      /></a>
+      <ul class="footer-nav">
+        <li><a href="index.html">בית</a></li>
+        <li><a href="portfolio.html">תיק עבודות</a></li>
+        <li><a href="about.html">אודות</a></li>
+        <li><a href="contact.html">צור קשר</a></li>
+      </ul>
+      <div class="footer-ig-row">
+        <a
+          id="footer-ig"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="footer-ig-btn"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </a>
+        <span class="footer-ig-label">Instagram</span>
+      </div>
+
+      <p class="footer-copy">
+        © כל הזכויות שמורות לאבישג זייתון <span id="year"></span>.
+      </p>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" role="dialog" aria-modal="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-panel">
+        <button id="modal-close" class="modal-close" aria-label="סגור">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <h2 class="modal-title">הזמן סשן</h2>
+        <div id="modal-form">
+          <div class="step-dots">
+            <div class="step-dot active"></div>
+            <div class="step-dot"></div>
+          </div>
+          <div id="modal-form-step1" class="form-step">
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 22px;
+                color: var(--clr-primary);
+                margin: 0 0 16px;
+              "
+            >
+              איזה סשן מעניין אותך?
+            </p>
+            <button class="session-btn" data-session="pre-event">
+              <div>
+                <div class="session-label">בוק שלפני האירוע</div>
+                <div class="session-desc">צילום זוגי לפני החתונה</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="proposals">
+              <div>
+                <div class="session-label">הצעת נישואין</div>
+                <div class="session-desc">רגע שלא ישכח לעולם</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="bar-mitzvah">
+              <div>
+                <div class="session-label">בר / בת מצווה</div>
+                <div class="session-desc">חגיגת נעורים עם סגנון</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="portrait">
+              <div>
+                <div class="session-label">פורטרט אישי</div>
+                <div class="session-desc">לאמנים ואנשי עסקים</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+          </div>
+          <div id="modal-form-step2" class="form-step">
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 22px;
+                color: var(--clr-primary);
+                margin: 0 0 16px;
+              "
+            >
+              השאירו פרטים
+            </p>
+            <form>
+              <div class="form-row" style="margin-bottom: 16px">
+                <input
+                  class="input-field"
+                  type="text"
+                  name="name"
+                  placeholder="שם מלא *"
+                  required
+                /><input
+                  class="input-field"
+                  type="tel"
+                  name="phone"
+                  placeholder="05X-XXXXXXX *"
+                  dir="ltr"
+                  style="text-align: right"
+                  required
+                />
+              </div>
+              <div style="margin-bottom: 16px">
+                <input
+                  class="input-field"
+                  type="date"
+                  name="date"
+                  style="color-scheme: light"
+                />
+              </div>
+              <textarea
+                class="input-field"
+                name="message"
+                rows="3"
+                placeholder="ספרו לנו קצת על החזון שלכם..."
+                style="margin-bottom: 4px"
+              ></textarea>
+              <button class="btn-submit" type="submit">שלח לוואצאפ ←</button>
+              <button class="btn-back" type="button">→ חזור</button>
+            </form>
+          </div>
+          <div
+            id="modal-form-success"
+            class="form-success"
+            style="display: none"
+          >
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <h3>הפניה נשלחה לוואצאפ!</h3>
+            <p>אם החלון לא נפתח, בדקו שחסימת פופ-אפ כבויה.</p>
+            <button class="btn-reset">שליחה נוספת</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/gallery-data.js"></script>
+    <script>
+      document
+        .querySelectorAll('[id$="-ig"]')
+        .forEach((el) => (el.href = SITE_CONFIG.instagramUrl));
+      document.getElementById("contact-ig-link").href =
+        SITE_CONFIG.instagramUrl;
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="js/main.js"></script>
+    <script>
+      // Init the inline contact form (separate instance from modal)
+      initMultiStepForm("contact-form");
+    </script>
+  </body>
+</html>

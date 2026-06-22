@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avishag Zeitoun – לוכדת רגעים נצחיים</title>
+    <meta
+      name="description"
+      content="צילום אירועים, הצעות נישואין ובר מצווה. תיעוד רגשי ואמנותי שישאר לנצח."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* ── Hero logo animation overlay ───────────────────────────────────────── */
+      #logo-anim-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 60;
+        pointer-events: none;
+        transform-origin: top left;
+        visibility: hidden; /* revealed by GSAP after measurement */
+      }
+      .logo-anim-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      #hero-logo-light-anim {
+        opacity: 0;
+        mix-blend-mode: multiply;
+      }
+      /* Hide real nav logo while the animated overlay is running */
+      body.logo-anim-active #nav-logo-img {
+        opacity: 0 !important;
+        transition: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── Navigation ─────────────────────────────────────────────────────────── -->
+    <nav id="main-nav">
+      <div class="nav-inner">
+        <a class="nav-logo" href="index.html">
+          <img id="nav-logo-img" src="" alt="Avishag Photography" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">בית</a></li>
+          <li><a href="portfolio.html">תיק עבודות</a></li>
+          <li><a href="about.html">אודות</a></li>
+          <li><a href="contact.html">צור קשר</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a
+            id="nav-ig"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="nav-ig-link"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <button class="btn-book" data-open-modal>הזמן סשן</button>
+        </div>
+        <button id="hamburger-btn" class="nav-hamburger" aria-label="פתח תפריט">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── Hero Logo Animation Overlay ──────────────────────────────────────────
+         Two stacked images; GSAP shrinks + moves them from hero-center to the
+         nav-logo slot as the user scrolls through the hero section.          -->
+    <div id="logo-anim-wrap" aria-hidden="true">
+      <img
+        class="logo-anim-img"
+        id="hero-logo-dark-anim"
+        src="page_pics/logo_for_dark_background.png"
+        alt=""
+      />
+      <img
+        class="logo-anim-img"
+        id="hero-logo-light-anim"
+        src="page_pics/regular_logo.png"
+        alt=""
+      />
+    </div>
+
+    <!-- ── Mobile Drawer ───────────────────────────────────────────────────────── -->
+    <div id="mobile-drawer">
+      <button
+        id="drawer-close"
+        class="nav-hamburger"
+        style="position: absolute; top: 20px; left: 24px"
+        aria-label="סגור"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <ul class="drawer-links">
+        <li><a href="index.html" class="active">בית</a></li>
+        <li><a href="portfolio.html">תיק עבודות</a></li>
+        <li><a href="about.html">אודות</a></li>
+        <li><a href="contact.html">צור קשר</a></li>
+      </ul>
+      <div class="drawer-bottom">
+        <button class="btn-book-full" data-open-modal>הזמן סשן</button>
+        <a
+          id="drawer-ig"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="drawer-ig"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+          <span style="font-family: var(--font-sans); font-size: 16px"
+            >Instagram</span
+          >
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Hero ───────────────────────────────────────────────────────────────── -->
+    <section class="hero">
+      <div
+        class="hero-bg"
+        style="background-image: url(page_pics/background.png)"
+      ></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content section-inner">
+        <h1 class="hero-title">Avishag Zeitoun</h1>
+        <p class="hero-sub">
+          אמנות הצילום כמספרת סיפורים. אלגנטיות, רגש, ותיעוד שיישאר לעד.
+        </p>
+        <div class="hero-cta">
+          <button class="btn-ghost" data-open-modal>הזמן סשן</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Category Grid ──────────────────────────────────────────────────────── -->
+    <section style="padding-block: clamp(80px, 12vw, 140px)">
+      <div class="section-inner">
+        <div
+          class="reveal"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 64px;
+          "
+        >
+          <h2
+            style="
+              font-family: var(--font-serif);
+              font-size: clamp(26px, 3vw, 32px);
+              color: var(--clr-primary);
+              margin: 0;
+            "
+          >
+            קטגוריות
+          </h2>
+          <a
+            href="portfolio.html"
+            class="label-caps"
+            style="
+              color: var(--clr-primary);
+              border-bottom: 1px solid var(--clr-primary);
+              padding-bottom: 2px;
+              transition: opacity 0.3s;
+            "
+            onmouseover="this.style.opacity = 0.6"
+            onmouseout="this.style.opacity = 1"
+            >כל התיק</a
+          >
+        </div>
+        <div class="category-grid">
+          <div class="reveal cat-card-1">
+            <a class="category-card" href="portfolio.html">
+              <img
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAcILm_MNFv0ei7g4Mj6Ggne9ipL1VhB63bK9JJKEpANAj4akvPhmbXq_BtA1Ftc-Va2lp1n-Qtdcuz1_FQGZN4atJRfbbzTjIL4TOfKoB0kXsIKSyuoDJoyrSXDDeyw7vntrW6yijDWyTTwfrbxs7ps2qSq4Wi1v-sO5d7p3LA0hSe1mELf2R-t3A4q2oQj8kIen-soiferNH7N8t2MHNtmxInVzJcfRIoDZQuz7Cdj8brHP5wIwoSHiQrFlFk5k34GGNaPEdJQs"
+                alt="צילומי זוגיות"
+              />
+              <div class="category-overlay"></div>
+              <div class="category-caption">
+                <span class="label label-caps">צילומי זוגיות</span>
+                <h3>לפני האירוע</h3>
+              </div>
+            </a>
+          </div>
+          <div class="reveal cat-card-2" style="transition-delay: 120ms">
+            <a class="category-card" href="portfolio.html">
+              <img
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzTKTWoinmbpmk9kgFce_y8twlv0AE9KbT6JYecL-eYqSnaH1uTx-OQ2mEe-Vgkb0RetwK19lCJuAxz4Q6yg6rd_mNcYPcsPp095LE00Sjx3yuhIkHVyaB6JB1_8GvvpaMGZl_7QqBdlpJBrAiRUK7Bm7VIHqs4i8LUf3SjJaLWbEyidi087kY7Nc7RWfQCDTw6R9TIME-XNcsXHxOyl8aoYgPT9AVIch6Tm0aheT7Iqr_VpjlH3YihG4sO7o5o1S193Z7H6-by-g"
+                alt="הצעות נישואין"
+              />
+              <div class="category-overlay"></div>
+              <div class="category-caption">
+                <span class="label label-caps">הצעות נישואין</span>
+                <h3>רגעים של פעם בחיים</h3>
+              </div>
+            </a>
+          </div>
+          <div class="reveal cat-card-3" style="transition-delay: 240ms">
+            <a class="category-card" href="portfolio.html">
+              <img
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVFUwsDI-bRmhDfB1u-M4yY_067jFwuqP0NfCR6T1VHHK2OFcp3-XOdMbTPxXl2wU6QgLadouX2EpEo6RSQHuuhnpOqyVe-EKbktbPyoaw-MrPD7HG1L3RJqiVhVUFn36LaS88wf29iNmzxLrmNHdtByaQRdIAgUAldlUAS5_tnQK-FRHND4MaO8LDfnn5fk34MzR3P49brvjrrkIXWTTWXfMzP1A0E2Z75kjZikYlRgUH3JBd8G92DVtlTgXEbYuGQS6mbOdtmGc"
+                alt="בר מצווה"
+              />
+              <div class="category-overlay"></div>
+              <div class="category-caption">
+                <span class="label label-caps">בר מצווה</span>
+                <h3>חגיגת נעורים</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Latest Work Carousel ────────────────────────────────────────────────── -->
+    <section
+      class="reveal"
+      style="
+        padding-block: clamp(80px, 12vw, 140px);
+        background: var(--clr-surface-alt);
+        overflow: hidden;
+      "
+    >
+      <div class="section-inner" style="margin-bottom: 64px">
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 24px;
+          "
+        >
+          <div style="max-width: 480px">
+            <h2
+              style="
+                font-family: var(--font-serif);
+                font-size: clamp(26px, 3vw, 32px);
+                color: var(--clr-primary);
+                margin: 0 0 16px;
+              "
+            >
+              עבודות אחרונות
+            </h2>
+            <p
+              style="
+                font-family: var(--font-sans);
+                font-size: 16px;
+                color: var(--clr-on-surface-var);
+                margin: 0;
+              "
+            >
+              הצצה לסיפורים שתיעדתי לאחרונה. כל תמונה מוקפדת מתוך רצון לשמר את
+              האותנטיות של הרגע.
+            </p>
+          </div>
+          <a
+            href="portfolio.html"
+            class="label-caps"
+            style="
+              color: var(--clr-primary);
+              border-bottom: 1px solid var(--clr-primary);
+              padding-bottom: 2px;
+              white-space: nowrap;
+              transition: opacity 0.3s;
+            "
+            onmouseover="this.style.opacity = 0.6"
+            onmouseout="this.style.opacity = 1"
+            >צפה בכל התיק</a
+          >
+        </div>
+      </div>
+      <div class="carousel-wrap">
+        <div class="carousel-fade-right"></div>
+        <div class="carousel-fade-left"></div>
+        <!-- dir=ltr so translateX(50%) scrolls left visually (RTL-safe) -->
+        <div class="carousel-track" dir="ltr" id="carousel-track"></div>
+      </div>
+    </section>
+
+    <!-- ── Testimonial ─────────────────────────────────────────────────────────── -->
+    <section
+      class="reveal"
+      style="padding-block: clamp(100px, 15vw, 200px); text-align: center"
+    >
+      <div
+        class="section-inner"
+        style="display: flex; flex-direction: column; align-items: center"
+      >
+        <svg
+          style="
+            color: rgba(107, 92, 78, 0.25);
+            width: 48px;
+            height: 48px;
+            margin-bottom: 32px;
+            flex-shrink: 0;
+          "
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+          />
+        </svg>
+        <blockquote style="max-width: 720px">
+          <p
+            style="
+              font-family: var(--font-serif);
+              font-size: clamp(20px, 2.5vw, 30px);
+              color: var(--clr-primary);
+              line-height: 1.5;
+              margin: 0 0 32px;
+            "
+          >
+            "היא לא רק צילמה תמונות, היא תפסה את הנשמה של האירוע שלנו. כל פריים
+            נראה כמו יצירת אמנות, והנוכחות שלה ביום שלנו הייתה מרגיעה ומקצועית."
+          </p>
+          <footer class="label-caps" style="color: var(--clr-on-surface-var)">
+            — דנה ורועי, חתונה בספטמבר
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ── Footer ──────────────────────────────────────────────────────────────── -->
+    <footer class="site-footer">
+      <a class="footer-logo" href="index.html"
+        ><img id="footer-logo-img" src="" alt="Elite Captures"
+      /></a>
+      <ul class="footer-nav">
+        <li><a href="index.html">בית</a></li>
+        <li><a href="portfolio.html">תיק עבודות</a></li>
+        <li><a href="about.html">אודות</a></li>
+        <li><a href="contact.html">צור קשר</a></li>
+      </ul>
+      <div class="footer-ig-row">
+        <a
+          id="footer-ig"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="footer-ig-btn"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </a>
+        <span class="footer-ig-label">Instagram</span>
+      </div>
+
+      <p class="footer-copy">
+        © כל הזכויות שמורות לאבישג זייתון <span id="year"></span>.
+      </p>
+    </footer>
+
+    <!-- ── Booking Modal ────────────────────────────────────────────────────────── -->
+    <div
+      id="booking-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-heading"
+    >
+      <div class="modal-backdrop"></div>
+      <div class="modal-panel">
+        <button id="modal-close" class="modal-close" aria-label="סגור">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <h2 id="modal-heading" class="modal-title">הזמן סשן</h2>
+        <div id="modal-form">
+          <div class="step-dots">
+            <div class="step-dot active"></div>
+            <div class="step-dot"></div>
+          </div>
+          <!-- Step 1 -->
+          <div id="modal-form-step1" class="form-step">
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 22px;
+                color: var(--clr-primary);
+                margin: 0 0 16px;
+              "
+            >
+              איזה סשן מעניין אותך?
+            </p>
+            <button class="session-btn" data-session="pre-event">
+              <div>
+                <div class="session-label">בוק שלפני האירוע</div>
+                <div class="session-desc">צילום זוגי לפני החתונה</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="proposals">
+              <div>
+                <div class="session-label">הצעת נישואין</div>
+                <div class="session-desc">רגע שלא ישכח לעולם</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="bar-mitzvah">
+              <div>
+                <div class="session-label">בר / בת מצווה</div>
+                <div class="session-desc">חגיגת נעורים עם סגנון</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+            <button class="session-btn" data-session="portrait">
+              <div>
+                <div class="session-label">פורטרט אישי</div>
+                <div class="session-desc">לאמנים ואנשי עסקים</div>
+              </div>
+              <span class="session-btn-arrow">←</span>
+            </button>
+          </div>
+          <!-- Step 2 -->
+          <div id="modal-form-step2" class="form-step">
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 22px;
+                color: var(--clr-primary);
+                margin: 0 0 16px;
+              "
+            >
+              השאירו פרטים
+            </p>
+            <form>
+              <div class="form-row" style="margin-bottom: 16px">
+                <div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="name"
+                    placeholder="שם מלא *"
+                    required
+                  />
+                </div>
+                <div>
+                  <input
+                    class="input-field"
+                    type="tel"
+                    name="phone"
+                    placeholder="05X-XXXXXXX *"
+                    dir="ltr"
+                    style="text-align: right"
+                    required
+                  />
+                </div>
+              </div>
+              <div style="margin-bottom: 16px">
+                <input
+                  class="input-field"
+                  type="date"
+                  name="date"
+                  style="color-scheme: light"
+                />
+              </div>
+              <div style="margin-bottom: 4px">
+                <textarea
+                  class="input-field"
+                  name="message"
+                  rows="3"
+                  placeholder="ספרו לנו קצת על החזון שלכם..."
+                ></textarea>
+              </div>
+              <button class="btn-submit" type="submit">שלח לוואצאפ ←</button>
+              <button class="btn-back" type="button">→ חזור</button>
+            </form>
+          </div>
+          <!-- Success -->
+          <div
+            id="modal-form-success"
+            class="form-success"
+            style="display: none"
+          >
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <h3>הפניה נשלחה לוואצאפ!</h3>
+            <p>אם החלון לא נפתח, בדקו שחסימת פופ-אפ כבויה.</p>
+            <button class="btn-reset">שליחה נוספת</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GSAP core + ScrollTrigger (loaded before gallery-data so SITE_CONFIG is
+         available when the inline animation script runs below) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+      integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
+      integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/gallery-data.js"></script>
+    <script>
+      // ── Set dynamic config values ────────────────────────────────────────────
+      document
+        .querySelectorAll('[id$="-ig"]')
+        .forEach((el) => (el.href = SITE_CONFIG.instagramUrl));
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // ── Carousel ─────────────────────────────────────────────────────────────
+      const CAROUSEL_IMAGES = [
+        {
+          src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCsZzIamUEGhHtKrc53ZePHtSU9wqTTXTS_Y_7aN8nXFxGz5L5q2YbZKTmzmeEh-AsXbot9u-DU18qZgqzqITpHPIC4QvRul2o6x_ZP5kdwtUurVNzadfTgb83ivQo-lRewfjMrB43e7Ix3TFTF-i7m-xIgLWAoAwajz35FUpxAxrYzK-tWvf9K7kqtTUrd5Yypx-Hq41cSlqpkJGlvbi_JacXgN2Dy9qYK1o6dgzRg8eCL7yzyt__2Max6g2qBQQuYQ0nT_4ch1pc",
+          alt: "טבעות",
+        },
+        {
+          src: "https://lh3.googleusercontent.com/aida-public/AB6AXuA9FHBOkoIZFD5gtWi0N6JvSHo3e0xitCcVg-0tq3u3okIg4DzFJeDhIVtNc3hDj8Y4qZrejJtqCJ6J_khgxAMLw_Nc8kxootaTewGF4Ru2V2khIOJt44qYgV2gIK7Ti9rJN_IdHhE14Ih0rCy1S-jsCi4ITZm3ws-zRUU4p3Vmw3OtaX2ozMUYpHa9aW4ZFaDRGIYBw8DjtByXnbFSyo6rQtoXRJIo8I3VQjPDrNr8bD7g2IX76CyFZGDT7QG8xV8hUrZe9ug5cwA",
+          alt: "אולם",
+        },
+        {
+          src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD4O4w1ZJdOVeB62EHA65Yo7DjtphxjLyIQvVX3PoMiqaydJARW09AVP0th9mQo1mk7tWCpw9KxQU3It6XNI4wbA_Q0t3pUmCkvNVDOyakfb5rBeiKXMV7jOkxTv-10vMnC-oB_lxzOTu2z40pOgW7ZrLdNnoXOQtCPS47IoE6nStldvttrimtkqaIyMe5TE5ykwCLezkVm42xTlQ2JZn4D2oYN2TPVfps-Lgxy9FvXzWjBRyxEvc5QYI75c55pda3nNo2tLSe-34M",
+          alt: "כלה",
+        },
+        {
+          src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAnoRfkN8-tPW-GTS8KuWcdhbebIFKUd6ErZkAxIiBjZPF-VczM4n0StIajnOdrjipmltckz51aBE655-nW5NZKAdTmbFANmkm_dJlY_XFHt8snSyYqoq-WBKbrd1oRp2Z3XGASROduPpR3RmShWCh00nGGN2Hm7RvfvOLfATJtEhkFyMFV-vrWoMZhVapDDC_V7CDt-YKxsZ8W8EEUzr5xUqpSYBxSPOediQXPnEF-KPGvrN0Ffy3J5b5xY_qn-Sq48PVGsP2ivNA",
+          alt: "סילואט",
+        },
+        {
+          src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAEWfF6pFyBOJqgU_x-EQjO7x5yOaVhiNr8ze7xwGAzUhXysx0J9Be89J9CcgCGAskoQiQ-y4iQZZu3SY0JSEdqeRutaznQ23o-pDBA_3jq-SJLcLgIMFCj3U3yXtejBxBL9ep1QjZSV7aWPMs_FyPiuSh9boO4x3i49md7YIwhtwBrl3xuYIFHu01o9DYXAnWZqJ6DG90mxIZmBcdpougDQvgBKvyXs6g_TitGtGd29r_j0Q5tj5h4VRqtxiPrk-Kwf4yY5nCa2_k",
+          alt: "פרטים",
+        },
+      ];
+      // Duplicate for seamless loop
+      const allItems = [...CAROUSEL_IMAGES, ...CAROUSEL_IMAGES];
+      const track = document.getElementById("carousel-track");
+      allItems.forEach(({ src, alt }) => {
+        track.innerHTML += `<div class="carousel-item"><img loading="lazy" src="${src}" alt="${alt}" /></div>`;
+      });
+    </script>
+    <script src="js/main.js"></script>
+
+    <!-- ── Hero logo scroll animation ────────────────────────────────────────── -->
+    <script>
+      (function () {
+        var heroSection = document.querySelector(".hero");
+        if (!heroSection || typeof gsap === "undefined") return;
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        var wrap = document.getElementById("logo-anim-wrap");
+        var darkImg = document.getElementById("hero-logo-dark-anim");
+        var lightImg = document.getElementById("hero-logo-light-anim");
+        var navEl = document.getElementById("main-nav");
+        var navLogoEl = document.querySelector(".nav-logo");
+        var navLogoImg = document.getElementById("nav-logo-img");
+
+        if (!wrap || !darkImg || !lightImg || !navEl || !navLogoEl) return;
+
+        var stInstance = null;
+
+        /* Measure the nav logo's bounding rect while nav is in its scrolled
+         (compact) state — that is the animation's final target. */
+        function measureNavLogoRect() {
+          var wasScrolled = navEl.classList.contains("scrolled");
+          navEl.classList.add("scrolled");
+          var rect = navLogoEl.getBoundingClientRect();
+          if (!wasScrolled) navEl.classList.remove("scrolled");
+          return rect;
+        }
+
+        function getInitWidth() {
+          /* Large on desktop, still prominent on mobile */
+          return window.innerWidth >= 768
+            ? Math.min(340, window.innerWidth * 0.28)
+            : Math.min(220, window.innerWidth * 0.55);
+        }
+
+        function setupAnimation() {
+          if (stInstance) {
+            stInstance.kill();
+            stInstance = null;
+          }
+
+          var INIT_WIDTH = getInitWidth();
+          wrap.style.width = INIT_WIDTH + "px";
+
+          var navRect = measureNavLogoRect();
+          var heroH = heroSection.offsetHeight;
+          var wrapH = wrap.offsetHeight || INIT_WIDTH * 0.38;
+
+          /* Initial: horizontally anchored to the nav logo's left edge so the
+           large logo sits flush-left in the hero; placed in the upper third
+           of the hero, well above the bottom-anchored Hebrew text. */
+          var initX = navRect.left;
+          var initY = heroH * 0.3 - wrapH / 2;
+
+          /* Final: same horizontal position — animation is purely vertical + scale */
+          var finalScale = navRect.width / INIT_WIDTH;
+          var finalX = navRect.left;
+          var finalY = navRect.top;
+
+          /* Place wrap and make it visible */
+          gsap.set(wrap, {
+            x: initX,
+            y: initY,
+            scale: 1,
+            transformOrigin: "top left",
+            autoAlpha: 1,
+          });
+
+          /* Build the scroll-driven timeline:
+           0 → 1.0  move + shrink to nav logo slot
+           0.65 → ~1.0  crossfade dark→light logo */
+          var tl = gsap.timeline({ paused: true });
+          tl.to(wrap, {
+            x: finalX,
+            y: finalY,
+            scale: finalScale,
+            ease: "none",
+            duration: 1,
+          })
+            .to(
+              darkImg,
+              { opacity: 0, ease: "power2.in", duration: 0.38 },
+              0.62,
+            )
+            .to(
+              lightImg,
+              { opacity: 1, ease: "power2.out", duration: 0.38 },
+              0.62,
+            );
+
+          stInstance = ScrollTrigger.create({
+            trigger: ".hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.4,
+            animation: tl,
+            onLeave: function () {
+              /* Hero fully scrolled past — hand off to the real nav logo */
+              gsap.set(wrap, { autoAlpha: 0 });
+              document.body.classList.remove("logo-anim-active");
+              /* Ensure nav shows the correct light logo */
+              if (navLogoImg) {
+                navLogoImg.src = SITE_CONFIG.logoUrl;
+                navLogoImg.style.opacity = "";
+              }
+            },
+            onEnterBack: function () {
+              /* User scrolled back into the hero */
+              gsap.set(wrap, { autoAlpha: 1 });
+              document.body.classList.add("logo-anim-active");
+            },
+          });
+        }
+
+        /* Activate the "hide real nav logo" state immediately */
+        document.body.classList.add("logo-anim-active");
+
+        /* If the page is restored with scroll already past the hero, skip anim */
+        if (window.scrollY >= heroSection.offsetHeight) {
+          document.body.classList.remove("logo-anim-active");
+          gsap.set(wrap, { autoAlpha: 0 });
+        }
+
+        /* Run after the dark logo image has loaded so we have real dimensions */
+        function init() {
+          setupAnimation();
+          /* If scrolled past hero (e.g. page refresh mid-scroll), hide overlay */
+          if (window.scrollY >= heroSection.offsetHeight) {
+            gsap.set(wrap, { autoAlpha: 0 });
+            document.body.classList.remove("logo-anim-active");
+          }
+        }
+
+        if (darkImg.complete && darkImg.naturalHeight > 0) {
+          init();
+        } else {
+          darkImg.addEventListener("load", init, { once: true });
+          darkImg.addEventListener("error", init, { once: true });
+        }
+
+        /* Recalculate on viewport resize (debounced) */
+        var resizeTimer;
+        window.addEventListener(
+          "resize",
+          function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function () {
+              ScrollTrigger.refresh();
+              if (window.scrollY < heroSection.offsetHeight) {
+                setupAnimation();
+              }
+            }, 250);
+          },
+          { passive: true },
+        );
+      })();
+    </script>
+  </body>
+</html>
