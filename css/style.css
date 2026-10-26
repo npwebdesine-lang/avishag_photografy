@@ -410,6 +410,13 @@ a:hover {
   overflow: hidden;
   background: var(--ink);
 }
+.hero__video {
+  opacity: 0;
+  transition: opacity var(--xfade, 1.2s) linear;
+}
+.hero__video.is-on {
+  opacity: 1;
+}
 .hero__img {
   position: absolute;
   inset: 0;
@@ -1447,6 +1454,108 @@ a:hover {
 }
 
 /* ── Breakpoints ──────────────────────────────────────────────────────── */
+/* Phones */
+@media (max-width: 699px) {
+  /* Slimmer nav */
+  .site-nav,
+  .site-nav--overlay.is-solid {
+    padding-block: 8px;
+  }
+  .site-nav--overlay {
+    padding-block: 12px;
+  }
+  .nav-logo img {
+    height: 48px;
+  }
+  .nav-actions .btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  /* Long titles may wrap instead of pushing past the screen edge */
+  .rule-title > * {
+    white-space: normal;
+  }
+  .rule-title::after {
+    min-width: 32px;
+  }
+  .page-head {
+    padding-top: calc(var(--section) + 40px);
+  }
+
+  /* Button pairs fill the row, stacking when they don't fit side by side */
+  .btn-row .btn {
+    flex: 1 1 140px;
+    padding-inline: 18px;
+  }
+
+  /* Bigger tap targets for small text links */
+  .footer-nav a,
+  .drawer-bottom a {
+    display: inline-block;
+    padding-block: 10px;
+  }
+  .footer-nav {
+    gap: 0 24px;
+  }
+  .link-line {
+    display: inline-block;
+    padding-top: 10px;
+  }
+
+  /* Pill rows scroll sideways instead of wrapping */
+  .jump,
+  .chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .jump::-webkit-scrollbar,
+  .chips::-webkit-scrollbar {
+    display: none;
+  }
+  .jump {
+    align-self: stretch;
+  }
+  .jump a {
+    padding-inline: 16px;
+  }
+  .chips {
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+  }
+  .chip {
+    flex-shrink: 0;
+  }
+
+  /* Two-column gallery */
+  .masonry {
+    columns: 2;
+    column-gap: 8px;
+  }
+  .masonry__item {
+    margin-bottom: 8px;
+  }
+  .masonry__item figcaption {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  /* Keep the banner caption readable on light photos */
+  .banner::after {
+    background: linear-gradient(to top, rgba(47, 38, 32, 0.65), transparent 70%);
+  }
+
+  /* Contact: get to the form sooner */
+  .contact-info .side-visual {
+    display: none;
+  }
+
+  .modal__panel {
+    max-height: 92dvh;
+  }
+}
 @media (min-width: 700px) {
   .field-row {
     grid-template-columns: 1fr 1fr;
@@ -1509,6 +1618,9 @@ a:hover {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .hero__video {
+    display: none;
+  }
   *,
   *::before,
   *::after {

@@ -98,7 +98,7 @@
           לתיאום צילום
         </button>
         <a data-ig href="#" target="_blank" rel="noopener noreferrer"
-          >Instagram · @avishag_photographer__</a
+          >Instagram · <bdi dir="ltr">@avishag_photographer__</bdi></a
         >
       </div>
     </div>
@@ -116,11 +116,32 @@
     <main>
       <header class="hero">
         <img
-          class="hero__img"
+          class="hero__img hero__poster"
           src="page_pics/photo-2.jpg"
           alt="ילדה בשמלה לבנה מול הים בשקיעה"
           fetchpriority="high"
         />
+        <!-- Seamless loop: two stacked copies of the clip crossfade at the seam (main.js) -->
+        <video
+          class="hero__img hero__video"
+          muted
+          playsinline
+          preload="auto"
+          aria-hidden="true"
+          data-hero-video
+        >
+          <source src="page_pics/hero-loop.mp4" type="video/mp4" />
+        </video>
+        <video
+          class="hero__img hero__video"
+          muted
+          playsinline
+          preload="auto"
+          aria-hidden="true"
+          data-hero-video
+        >
+          <source src="page_pics/hero-loop.mp4" type="video/mp4" />
+        </video>
         <div class="hero__shade"></div>
         <div class="container hero__content">
           <p class="hero__kicker">רגעים שישארו לתמיד</p>

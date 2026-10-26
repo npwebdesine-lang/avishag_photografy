@@ -12,8 +12,68 @@ document
   .querySelectorAll("[data-year]")
   .forEach((el) => (el.textContent = new Date().getFullYear()));
 
+// ── Hero video loop ────────────────────────────────────────────────────────
+// Two copies of the same clip: shortly before one ends, the other restarts from
+// the beginning and they crossfade, so the loop has no visible jump.
+// If the video can't play, the poster photo underneath stays visible.
+(function heroLoop() {
+  const vids = [...document.querySelectorAll("[data-hero-video]")];
+  if (
+    vids.length < 2 ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  )
+    return;
+  const XFADE = 1.2; // seconds
+  document.documentElement.style.setProperty("--xfade", XFADE + "s");
+  let cur = 0,
+    switching = false;
+
+  function start(v) {
+    v.currentTime = 0;
+    const p = v.play();
+    if (p && p.catch) p.catch(() => {});
+  }
+  function tick() {
+    const a = vids[cur];
+    if (
+      a.duration &&
+      !switching &&
+      a.currentTime >= a.duration - XFADE - 0.05
+    ) {
+      switching = true;
+      const b = vids[1 - cur];
+      start(b);
+      b.classList.add("is-on");
+      a.classList.remove("is-on");
+      setTimeout(
+        () => {
+          a.pause();
+          cur = 1 - cur;
+          switching = false;
+        },
+        XFADE * 1000 + 50,
+      );
+    }
+    requestAnimationFrame(tick);
+  }
+  vids[0].addEventListener(
+    "playing",
+    () => {
+      vids[0].classList.add("is-on");
+      requestAnimationFrame(tick);
+    },
+    { once: true },
+  );
+  start(vids[0]);
+  // Pause when the tab is hidden to save battery
+  document.addEventListener("visibilitychange", () => {
+    const v = vids[cur];
+    document.hidden ? v.pause() : v.play().catch(() => {});
+  });
+})();
+
 // ── Nav: solid on scroll (home page overlay only) ─────────────────────────
-const nav = document.querySelector(".site-nav--overlay");
+const nav =document.querySelector(".site-nav--overlay");
 const heroLogo = document.getElementById("hero-logo");
 const fly = document.getElementById("logo-fly");
 const reduceMotion = window.matchMedia(
