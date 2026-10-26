@@ -73,7 +73,7 @@ document
 })();
 
 // ── Nav: solid on scroll (home page overlay only) ─────────────────────────
-const nav =document.querySelector(".site-nav--overlay");
+const nav = document.querySelector(".site-nav--overlay");
 const heroLogo = document.getElementById("hero-logo");
 const fly = document.getElementById("logo-fly");
 const reduceMotion = window.matchMedia(

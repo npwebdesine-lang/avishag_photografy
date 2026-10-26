@@ -1544,7 +1544,11 @@ a:hover {
 
   /* Keep the banner caption readable on light photos */
   .banner::after {
-    background: linear-gradient(to top, rgba(47, 38, 32, 0.65), transparent 70%);
+    background: linear-gradient(
+      to top,
+      rgba(47, 38, 32, 0.65),
+      transparent 70%
+    );
   }
 
   /* Contact: get to the form sooner */
