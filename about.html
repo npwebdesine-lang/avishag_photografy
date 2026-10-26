@@ -3,471 +3,389 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>אודות – Avishag Zeitoun</title>
+    <title>אודות וחבילות – Avishag Zeitoun</title>
+    <meta
+      name="description"
+      content="הפילוסופיה, חבילות צילומי משפחה וצילום סושיאל לחתונות, ותנאי השירות."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@300..700&family=Frank+Ruhl+Libre:wght@300..700&family=Playpen+Sans+Hebrew:wght@300;400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <style>
-      .about-hero-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 48px;
-        align-items: center;
-      }
-      @media (min-width: 1024px) {
-        .about-hero-grid {
-          grid-template-columns: 6fr 5fr;
-          gap: 80px;
-        }
-      }
-      .portrait-wrap {
-        position: relative;
-      }
-      .portrait-deco {
-        position: absolute;
-        inset: -16px;
-        background: var(--clr-surface-alt);
-        z-index: -1;
-        transform: translate(16px, 32px);
-      }
-      .services-item {
-        border-bottom: 1px solid rgba(209, 196, 188, 0.4);
-        padding-bottom: 24px;
-        cursor: pointer;
-      }
-      .services-item-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .services-item-desc {
-        font-family: var(--font-sans);
-        font-size: 15px;
-        color: var(--clr-on-surface-var);
-        margin-top: 12px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-      }
-      .services-item:hover .services-item-desc {
-        max-height: 100px;
-      }
-      .detail-strip {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
-      @media (min-width: 768px) {
-        .detail-strip {
-          grid-template-columns: 1fr 1fr 1fr;
-        }
-      }
-    </style>
   </head>
   <body>
-    <!-- Navigation -->
-    <nav id="main-nav" class="scrolled">
-      <div class="nav-inner">
-        <a class="nav-logo" href="index.html"
-          ><img id="nav-logo-img" src="" alt="Elite Captures"
-        /></a>
+    <!-- ── Navigation ─────────────────────────────────────────────────────── -->
+    <nav class="site-nav" aria-label="ניווט ראשי">
+      <div class="container nav-inner">
+        <a
+          class="nav-logo"
+          href="index.html"
+          aria-label="Avishag Zeitoun – דף הבית"
+        >
+          <img
+            class="logo-light"
+            src="page_pics/regular_logo.png"
+            alt="Avishag Zeitoun"
+          />
+          <img
+            class="logo-dark"
+            src="page_pics/logo_for_dark_background.png"
+            alt=""
+          />
+        </a>
         <ul class="nav-links">
           <li><a href="index.html">בית</a></li>
           <li><a href="portfolio.html">תיק עבודות</a></li>
-          <li><a href="about.html" class="active">אודות</a></li>
+          <li><a href="about.html" aria-current="page">אודות וחבילות</a></li>
           <li><a href="contact.html">צור קשר</a></li>
         </ul>
         <div class="nav-actions">
           <a
-            id="nav-ig"
+            class="nav-ig"
+            data-ig
             href="#"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            class="nav-ig-link"
-          >
-            <svg
-              width="18"
-              height="18"
+            ><svg
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
+              aria-hidden="true"
             >
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-            </svg>
-          </a>
-          <button class="btn-book" data-open-modal>הזמן סשן</button>
-        </div>
-        <button id="hamburger-btn" class="nav-hamburger" aria-label="פתח תפריט">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg
+          ></a>
+          <button class="btn" type="button" data-open-modal>
+            לתיאום צילום
+          </button>
+          <button
+            class="burger"
+            type="button"
+            data-drawer-open
+            aria-label="פתיחת תפריט"
           >
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </button>
+            <span></span><span></span>
+          </button>
+        </div>
       </div>
     </nav>
 
-    <!-- Mobile Drawer -->
-    <div id="mobile-drawer">
+    <div class="drawer" id="drawer" aria-hidden="true">
       <button
-        id="drawer-close"
-        class="nav-hamburger"
-        style="position: absolute; top: 20px; left: 24px"
-        aria-label="סגור"
+        class="drawer-close"
+        type="button"
+        data-drawer-close
+        aria-label="סגירה"
       >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-        >
-          <line x1="18" y1="6" x2="6" y2="18" />
-          <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
+        ×
       </button>
-      <ul class="drawer-links">
-        <li><a href="index.html">בית</a></li>
-        <li><a href="portfolio.html">תיק עבודות</a></li>
-        <li><a href="about.html" class="active">אודות</a></li>
-        <li><a href="contact.html">צור קשר</a></li>
-      </ul>
+      <a href="index.html">בית</a>
+      <a href="portfolio.html">תיק עבודות</a>
+      <a href="about.html" aria-current="page">אודות וחבילות</a>
+      <a href="contact.html">צור קשר</a>
       <div class="drawer-bottom">
-        <button class="btn-book-full" data-open-modal>הזמן סשן</button>
-        <a
-          id="drawer-ig"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="drawer-ig"
+        <button class="btn btn--ivory btn--block" type="button" data-open-modal>
+          לתיאום צילום
+        </button>
+        <a data-ig href="#" target="_blank" rel="noopener noreferrer"
+          >Instagram · @avishag_photographer__</a
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-          </svg>
-          <span style="font-family: var(--font-sans); font-size: 16px"
-            >Instagram</span
-          >
-        </a>
       </div>
     </div>
 
-    <main style="padding-top: 96px; padding-bottom: 128px">
-      <!-- ── Hero: Story ─────────────────────────────────────────────────────── -->
-      <section style="padding-block: clamp(60px, 10vw, 120px)">
-        <div class="section-inner">
-          <div class="about-hero-grid">
-            <!-- Portrait (appears first visually = right in RTL at desktop) -->
-            <div class="portrait-wrap reveal" style="order: 1">
-              <div class="portrait-deco"></div>
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFry41P6PshUYl_XwOxjnSLcy0DVuUc37pmCb2u3Alq58_TUPR39UPTLto_JT5BFjj5M1pY_dqiJJ2_zNDM7r3yxVT1IURhMcxR6oY7fErhktIri_T2shbzVaSDgQzgX1MK5ugjbOjjCDiJ9FS2Ag8anRO9qnaL2cYhmTXUeRspBkeW3mwdv3HMRzL7e-k_7_Kq_-94dA6boli5qN4ju5K5itTCWQflxGrB07K2omu06qLN1RymDdOLGXnDn8aAEcyMunrQ3QsG80"
-                alt="פורטרט הצלמת"
-                loading="lazy"
-                style="
-                  width: 100%;
-                  height: auto;
-                  aspect-ratio: 3/4;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
+    <main>
+      <section class="page-head">
+        <div class="container">
+          <div class="rule-title"><h1 class="script">אודות ופילוסופיה</h1></div>
+        </div>
+      </section>
+
+      <!-- ── Vision ────────────────────────────────────────────────────────── -->
+      <section class="section" style="padding-top: 0">
+        <div class="container container--narrow">
+          <div class="vision">
+            <div class="vision__text reveal">
+              <span class="eyebrow">צילומי משפחה</span>
+              <h2 class="h-section">איזה כיף שאתם רוצים להצטלם אצלי!</h2>
+              <p class="story">
+                אני מאמינה שדווקא הרגעים הכי קטנים, אלה שאנחנו כמעט לא שמים לב
+                אליהם, הם לפעמים הרגעים שהכי היינו רוצים לחזור אליהם. החיבוק הזה
+                של אמא. היד הקטנה שמחזיקה ביד של אבא. הצחוק המתגלגל של הילדים,
+                המבטים שבין בני זוג, הנשיקה הקטנה על המצח. כל הדברים הפשוטים
+                האלה, שיום אחד נהיה מוכנים לתת הכול בשביל לחוות אותם שוב, אפילו
+                רק לרגע.
+              </p>
+              <p class="vision__pull">
+                אני מאמינה שתמונה טובה היא לא רק תמונה יפה. היא תמונה שמצליחה
+                לגרום לכם להרגיש.
+              </p>
+              <p class="story">
+                בסוף, מה שנשאר לנו מהזמן שעובר אלה הרגעים שהצלחנו לשמור. ואני
+                כאן לדאוג שהרגעים האלו ישארו אתכם לתמיד.
+              </p>
             </div>
-            <!-- Text -->
-            <div
-              class="reveal"
-              style="
-                order: 2;
-                display: flex;
-                flex-direction: column;
-                gap: 28px;
-                transition-delay: 200ms;
-              "
-            >
-              <span class="section-label" style="margin-bottom: 0">האמנית</span>
-              <h1
-                style="
-                  font-family: var(--font-serif);
-                  font-size: clamp(36px, 5.5vw, 64px);
-                  letter-spacing: -0.02em;
-                  color: var(--clr-primary);
-                  margin: 0;
-                  line-height: 1.1;
-                "
-              >
-                הסיפור שמאחורי העדשה.
-              </h1>
-              <div
-                style="
-                  display: flex;
-                  flex-direction: column;
-                  gap: 20px;
-                  font-family: var(--font-sans);
-                  font-size: 17px;
-                  color: var(--clr-on-surface-var);
-                  line-height: 1.7;
-                "
-              >
-                <p style="margin: 0">
-                  צילום עבורי הוא לא רק תיעוד רגעים, הוא לכידת המהות השקטה של
-                  הנוכחות. כל פריים הוא שיר אילם, חיפוש אחר האור המדויק שחושף את
-                  האמת הפנימית.
+            <figure class="vision__photo reveal">
+              <img
+                src="page_pics/photo-13.jpg"
+                alt="אמא ופעוטה הולכות על הסלעים מול הים"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+
+          <div class="vision vision--wedding">
+            <div class="vision__text reveal">
+              <span class="eyebrow">צילום סושיאל לחתונות</span>
+              <h2 class="h-section">קודם כל - מזל טוב! איזה כיף שהגעת אליי!</h2>
+              <p class="story">
+                יום החתונה שלך מורכב מאלפי רגעים קטנים. מהידיים שקצת רועדות בזמן
+                ההתארגנות, המבט של אמא כשהיא רואה אותך מוכנה, הצחוקים עם החברות,
+                החיבוק רגע לפני שיוצאים — ועד לרגעים הקטנים בינך לבינו, שאף אחד
+                בכלל לא שם לב שקרו.
+              </p>
+              <p class="vision__pull">ודווקא אותם אני הכי אוהבת לתפוס.</p>
+              <p class="story">
+                אני אוהבת להיות שם גם ברגעים שלא תוכננו ולא ביימנו. לתפוס את
+                המבטים, התנועות, הפרטים הקטנים ואת כל מה שקורה מסביב, בזמן שאת
+                פשוט נהנית מהיום שלך. כי בסוף, דווקא הרגעים שעוברים הכי מהר ביום
+                הזה הם אלה שהכי כיף לגלות אחר כך שנשארו איתך.
+              </p>
+            </div>
+            <figure class="vision__photo reveal">
+              <img
+                src="page_pics/photo-17.jpg"
+                alt="כלה מחזיקה יד של ילדה"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Packages ──────────────────────────────────────────────────────── -->
+      <section class="section section--paper section--texture" id="packages">
+        <div
+          class="bg-photo bg-photo--texture"
+          style="background-image: url(page_pics/photo-1.jpg)"
+          aria-hidden="true"
+        ></div>
+        <div class="container">
+          <div class="pricing-head reveal">
+            <div class="rule-title"><h2 class="h-section">החבילות שלי</h2></div>
+            <nav class="jump" aria-label="מעבר לחבילות">
+              <a href="#family-packages">צילומי משפחה</a>
+              <a href="#wedding-packages">סושיאל לחתונות</a>
+              <a href="#terms">תנאי שירות</a>
+            </nav>
+          </div>
+
+          <div id="family-packages" style="scroll-margin-top: 110px">
+            <h3 class="h-card" style="margin-bottom: 24px">
+              חבילות צילומי משפחה
+            </h3>
+            <div class="price-grid">
+              <article class="price-card reveal">
+                <h3 class="price-card__tier">סט בסיסי</h3>
+                <p class="price-card__price">
+                  <span class="num">800</span><span class="cur">₪</span>
                 </p>
-                <p style="margin: 0">
-                  אני מאמינה ביופי של פשטות, בכוחו של המינימליזם להעצים את הרגש.
-                  הגישה העריכתית שלי שואבת השראה מציור קלאסי — קומפוזיציות נקיות
-                  וגוונים חמים שמרגישים אל-זמניים.
+                <hr class="price-card__rule" />
+                <ul class="price-card__list">
+                  <li>סט קצר ואינטימי של שעה</li>
+                  <li>לוקיישן אחד</li>
+                  <li><strong>מינימום 80 תמונות ערוכות</strong></li>
+                </ul>
+                <button
+                  class="btn btn--line btn--block"
+                  type="button"
+                  data-open-modal
+                  data-session="family"
+                >
+                  לתיאום סט בסיסי
+                </button>
+              </article>
+              <article class="price-card price-card--featured reveal">
+                <h3 class="price-card__tier">הסט הקלאסי</h3>
+                <p class="price-card__price">
+                  <span class="num">1200</span><span class="cur">₪</span>
                 </p>
-              </div>
-              <div>
-                <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhRLauWCE7hvbm3nNUm6HEntTR6hUO9T5YyXKQVVPwKjFy30buw9XSrzeDQXs4vWIXe9q_rjffk1FxIUOa4b-kBMcr9U6VJe6g6hdL8pT-v4MEeV6JFtZSZrNb7t139jsfBGK98Bc2FSodwIdkiFWRE1z2qhkF_btV39QUrIJjDy_9VCcnTQwXXEaFxqG_jx5dYpizMkZwFuv_qK2wTzx767Ia9amDIkyN5p2gQa2tqjRbJU5QjBseEQvHDbG9J1WZI0e1Q1FKfpU"
-                  alt="חתימה"
-                  loading="lazy"
-                  style="height: 56px; width: auto; opacity: 0.75"
-                />
-              </div>
+                <hr class="price-card__rule" />
+                <ul class="price-card__list">
+                  <li>צילום של שעה וחצי</li>
+                  <li>לוקיישן אחד</li>
+                  <li><strong>מינימום 100 תמונות ערוכות</strong></li>
+                </ul>
+                <button
+                  class="btn btn--line btn--block"
+                  type="button"
+                  data-open-modal
+                  data-session="family"
+                >
+                  לתיאום הסט הקלאסי
+                </button>
+              </article>
+              <article class="price-card reveal">
+                <h3 class="price-card__tier">הסט המורחב</h3>
+                <p class="price-card__price">
+                  <span class="num">1500</span><span class="cur">₪</span>
+                </p>
+                <hr class="price-card__rule" />
+                <ul class="price-card__list">
+                  <li>חוויה משפחתית של כשעתיים</li>
+                  <li>שני לוקיישנים קרובים</li>
+                  <li><strong>מינימום 150 תמונות ערוכות</strong></li>
+                </ul>
+                <button
+                  class="btn btn--line btn--block"
+                  type="button"
+                  data-open-modal
+                  data-session="family"
+                >
+                  לתיאום הסט המורחב
+                </button>
+              </article>
+            </div>
+            <div class="notes">
+              <p>מחיר הנסיעות כלול עד 40 דקות מיקיר.</p>
+              <p>מינימום תמונות אומר שאין מקסימום.</p>
+            </div>
+          </div>
+
+          <div
+            id="wedding-packages"
+            style="margin-top: var(--section); scroll-margin-top: 110px"
+          >
+            <figure class="banner reveal">
+              <img
+                src="page_pics/photo-21.jpg"
+                alt="נעלי כלה תלויות על ענף"
+                loading="lazy"
+              />
+              <figcaption class="h-card">צילום סושיאל לחתונות</figcaption>
+            </figure>
+            <div class="price-grid">
+              <article class="price-card price-card--sand reveal">
+                <h3 class="price-card__tier">חבילת חופה</h3>
+                <p class="price-card__price">
+                  <span class="num">1200</span><span class="cur">₪</span>
+                </p>
+                <hr class="price-card__rule" />
+                <ul class="price-card__list">
+                  <li>ליווי מלקראת סוף ההתארגנות ועד סיום החופה</li>
+                  <li>2 סרטונים (ארוך וקצר)</li>
+                  <li><strong>מינימום 50 תמונות ממצלמה מקצועית</strong></li>
+                </ul>
+                <button
+                  class="btn btn--line btn--block"
+                  type="button"
+                  data-open-modal
+                  data-session="wedding"
+                >
+                  לתיאום חבילת חופה
+                </button>
+              </article>
+              <article class="price-card price-card--olive reveal">
+                <h3 class="price-card__tier">החבילה הקלאסית</h3>
+                <p class="price-card__price">
+                  <span class="num">1800</span><span class="cur">₪</span>
+                </p>
+                <hr class="price-card__rule" />
+                <ul class="price-card__list">
+                  <li>ליווי מלקראת סוף ההתארגנות ועד השעה 22:00</li>
+                  <li>2 סרטונים</li>
+                  <li><strong>מינימום 50 תמונות</strong></li>
+                </ul>
+                <button
+                  class="btn btn--line btn--block"
+                  type="button"
+                  data-open-modal
+                  data-session="wedding"
+                >
+                  לתיאום החבילה הקלאסית
+                </button>
+              </article>
+              <article class="price-card price-card--caramel reveal">
+                <h3 class="price-card__tier">החבילה המורחבת</h3>
+                <p class="price-card__price">
+                  <span class="num">2200</span><span class="cur">₪</span>
+                </p>
+                <hr class="price-card__rule" />
+                <ul class="price-card__list">
+                  <li>ליווי מלקראת סוף ההתארגנות ועד השעה 23:30</li>
+                  <li>2 סרטונים</li>
+                  <li><strong>מינימום 50 תמונות</strong></li>
+                </ul>
+                <button
+                  class="btn btn--line btn--block"
+                  type="button"
+                  data-open-modal
+                  data-session="wedding"
+                >
+                  לתיאום החבילה המורחבת
+                </button>
+              </article>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ── Approach & Services ─────────────────────────────────────────────── -->
-      <section style="padding-block: clamp(40px, 6vw, 80px)">
-        <div class="section-inner">
-          <div
-            style="
-              background: var(--clr-surface-alt);
-              padding: clamp(32px, 5vw, 96px);
-            "
-          >
-            <div style="display: grid; grid-template-columns: 1fr; gap: 64px">
-              <!-- Approach -->
-              <div class="reveal">
-                <span class="section-label">הגישה שלי</span>
-                <h2
-                  style="
-                    font-family: var(--font-serif);
-                    font-size: clamp(24px, 3vw, 32px);
-                    color: var(--clr-primary);
-                    margin: 0 0 24px;
-                  "
-                >
-                  אינטימיות מעוצבת.
-                </h2>
-                <p
-                  style="
-                    font-family: var(--font-sans);
-                    font-size: 16px;
-                    color: var(--clr-on-surface-var);
-                    line-height: 1.7;
-                    margin: 0 0 24px;
-                  "
-                >
-                  אני ניגשת לכל סשן כפרויקט אמנותי ייחודי. אנחנו מתחילים בהבנת
-                  החזון שלכם, וממשיכים בתהליך מוקפד של בחירת לוקיישנים, תאורה
-                  וסטיילינג. המטרה היא ליצור סביבה טבעית המאפשרת לכם להיות אתם.
-                </p>
-                <ul
-                  style="
-                    list-style: none;
-                    padding: 0;
-                    margin: 0;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 12px;
-                  "
-                >
-                  <li
-                    style="
-                      display: flex;
-                      align-items: center;
-                      gap: 12px;
-                      font-family: var(--font-sans);
-                      font-size: 16px;
-                      color: var(--clr-on-surface-var);
-                    "
-                  >
-                    <span
-                      style="
-                        width: 6px;
-                        height: 6px;
-                        border-radius: 50%;
-                        background: var(--clr-secondary);
-                        flex-shrink: 0;
-                      "
-                    ></span
-                    >פגישת קונספט מקדימה
-                  </li>
-                  <li
-                    style="
-                      display: flex;
-                      align-items: center;
-                      gap: 12px;
-                      font-family: var(--font-sans);
-                      font-size: 16px;
-                      color: var(--clr-on-surface-var);
-                    "
-                  >
-                    <span
-                      style="
-                        width: 6px;
-                        height: 6px;
-                        border-radius: 50%;
-                        background: var(--clr-secondary);
-                        flex-shrink: 0;
-                      "
-                    ></span
-                    >הכוונה טבעית במהלך הצילום
-                  </li>
-                  <li
-                    style="
-                      display: flex;
-                      align-items: center;
-                      gap: 12px;
-                      font-family: var(--font-sans);
-                      font-size: 16px;
-                      color: var(--clr-on-surface-var);
-                    "
-                  >
-                    <span
-                      style="
-                        width: 6px;
-                        height: 6px;
-                        border-radius: 50%;
-                        background: var(--clr-secondary);
-                        flex-shrink: 0;
-                      "
-                    ></span
-                    >עריכה קפדנית בסגנון פילם
-                  </li>
-                </ul>
+      <!-- ── Terms ─────────────────────────────────────────────────────────── -->
+      <section class="section" id="terms" style="scroll-margin-top: 80px">
+        <div class="container">
+          <div class="rule-title reveal" style="margin-bottom: 32px">
+            <h2 class="h-section">תנאי שירות ודגשים</h2>
+          </div>
+          <div class="terms-layout">
+            <figure class="side-visual reveal">
+              <img
+                src="page_pics/photo-16.jpg"
+                alt="יד כלה עם טבעת אירוסין"
+                loading="lazy"
+              />
+            </figure>
+            <div class="terms reveal">
+              <div class="term">
+                <span class="term__num">01</span>
+                <div>
+                  <h3>חומרי הגלם</h3>
+                  <p>
+                    חומרי הגלם מועברים בערב האירוע באמצעות AirDrop / Dropbox /
+                    אלבום משותף.
+                  </p>
+                </div>
               </div>
-              <!-- Services -->
-              <div class="reveal" style="transition-delay: 200ms">
-                <span class="section-label">שירותים</span>
-                <div style="display: flex; flex-direction: column; gap: 24px">
-                  <div class="services-item">
-                    <div class="services-item-header">
-                      <h3
-                        style="
-                          font-family: var(--font-serif);
-                          font-size: 24px;
-                          color: var(--clr-primary);
-                          margin: 0;
-                          transition: color 0.3s;
-                        "
-                        onmouseover="this.style.color = 'var(--clr-secondary)'"
-                        onmouseout="this.style.color = 'var(--clr-primary)'"
-                      >
-                        פורטרט אישי
-                      </h3>
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        style="color: var(--clr-outline)"
-                      >
-                        <path d="M19 12H5M12 19l-7-7 7-7" />
-                      </svg>
-                    </div>
-                    <p class="services-item-desc">
-                      סשן אינטימי המתמקד בהבעה האישית שלך. מתאים לאמנים, אנשי
-                      עסקים וכל מי שמחפש תיעוד עמוק של עצמו.
-                    </p>
-                  </div>
-                  <div class="services-item">
-                    <div class="services-item-header">
-                      <h3
-                        style="
-                          font-family: var(--font-serif);
-                          font-size: 24px;
-                          color: var(--clr-primary);
-                          margin: 0;
-                          transition: color 0.3s;
-                        "
-                        onmouseover="this.style.color = 'var(--clr-secondary)'"
-                        onmouseout="this.style.color = 'var(--clr-primary)'"
-                      >
-                        זוגיות ומשפחה
-                      </h3>
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        style="color: var(--clr-outline)"
-                      >
-                        <path d="M19 12H5M12 19l-7-7 7-7" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div class="services-item">
-                    <div class="services-item-header">
-                      <h3
-                        style="
-                          font-family: var(--font-serif);
-                          font-size: 24px;
-                          color: var(--clr-primary);
-                          margin: 0;
-                          transition: color 0.3s;
-                        "
-                        onmouseover="this.style.color = 'var(--clr-secondary)'"
-                        onmouseout="this.style.color = 'var(--clr-primary)'"
-                      >
-                        אדיטוריאל ואופנה
-                      </h3>
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        style="color: var(--clr-outline)"
-                      >
-                        <path d="M19 12H5M12 19l-7-7 7-7" />
-                      </svg>
-                    </div>
-                  </div>
+              <div class="term">
+                <span class="term__num">02</span>
+                <div>
+                  <h3>סרטונים ערוכים</h3>
+                  <p>סרטונים ערוכים יישלחו עד 3 ימים לאחר האירוע.</p>
+                </div>
+              </div>
+              <div class="term">
+                <span class="term__num">03</span>
+                <div>
+                  <h3>שעות נוספות</h3>
+                  <p>כל שעה נוספת מעבר למסוכם תהיה בעלות של כ-150 ₪.</p>
+                </div>
+              </div>
+              <div class="term">
+                <span class="term__num">04</span>
+                <div>
+                  <h3>מדיניות ביטולים</h3>
+                  <p>
+                    פחות משבועיים - המקדמה נשארת; פחות משבעה ימים - גביית מחיר
+                    מלא.
+                  </p>
                 </div>
               </div>
             </div>
@@ -475,256 +393,168 @@
         </div>
       </section>
 
-      <!-- ── Detail image strip ────────────────────────────────────────────── -->
-      <section class="reveal" style="padding-block: 40px 0">
-        <div class="section-inner">
-          <div class="detail-strip">
-            <div style="overflow: hidden">
-              <img
-                loading="lazy"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5lCEVz1mBYcOp8mTvkSpEoy31B7UH76bFodfpZ1LJivFQ7RAoHcjKfO_KFU9n9YLJ0SzSSyKUeNFCJp7qFilmlyV2XxJo638dUAnxdHJsSu7p75e0-yLr2sdwm2xUQJ8z-QggS45AmiQz4VuF60p_Lg5NvMxrMUql8QS-N149ILsPfl3U6lnTB6mvsrJrp1eU8kzuDidjKfssxpIHgqNLI_4ioBul59U4AAqyGuExXNen_PzVgw3m2Z4K4vtJI2bKbj63AigO8g4"
-                alt="מצלמת פילם"
-                style="
-                  width: 100%;
-                  height: 220px;
-                  object-fit: cover;
-                  transition: transform 1s ease;
-                  display: block;
-                "
-                onmouseover="this.style.transform = 'scale(1.06)'"
-                onmouseout="this.style.transform = 'scale(1)'"
-              />
-            </div>
-            <div style="overflow: hidden; display: none" class="md-show">
-              <img
-                loading="lazy"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVBhpfsX1j7Q-KtcWD5z2arICFoLmBnBiZLK5YFPApAIZlhitBg5VGJwCLcKfmxzL3qdKkKapEgSVOS3t0X44uwMkShgumn7oH4Vg8wjIlniwvt6_1twvQz_DHS3ubJ2SoPq5x1tDT1BTzlY1a3uAaLbNaJcBKwOCX19Zt4vmNQOihLQVUBR2Ej9KnqOMJuXGr2fbDIcyCeHt0S37NE1-y6dZgXW_JA8MLOtX_fxEewzozYgcpHM8aI16aL1PeYDDoo4Lc2ZiLwE4"
-                alt="צלליות"
-                style="
-                  width: 100%;
-                  height: 220px;
-                  object-fit: cover;
-                  transition: transform 1s ease;
-                  display: block;
-                "
-                onmouseover="this.style.transform = 'scale(1.06)'"
-                onmouseout="this.style.transform = 'scale(1)'"
-              />
-            </div>
-            <div style="overflow: hidden">
-              <img
-                loading="lazy"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYDrPc1SLYUHe7gmHsHwF1rvKSUFrno1G5wEST5qaZfOMBPnYWuORsF9Q7yJvaDln5pi1E4Vy-VOiL08GKMRPUqwxMV0Us3hqHdNyoVzqiqB9pIX_XSUL4JGmq7HWIDI8aEvddiBoCGtgWvx58-W2HgewFlgsEo-rd61BqWzQt39c1mewOfwnExoj4uDLxOLZogb7aisINxIKIDH0JU4s5GisPy8BAIlsTCJOGMqjanNP_QEo79Am20I10tl0hfEJxXNWKPiUbeNg"
-                alt="פרח יבש"
-                style="
-                  width: 100%;
-                  height: 220px;
-                  object-fit: cover;
-                  transition: transform 1s ease;
-                  display: block;
-                "
-                onmouseover="this.style.transform = 'scale(1.06)'"
-                onmouseout="this.style.transform = 'scale(1)'"
-              />
-            </div>
+      <section class="cta" id="contact-cta">
+        <img
+          class="cta__img"
+          src="page_pics/photo-19.jpg"
+          alt=""
+          loading="lazy"
+        />
+        <div class="cta__shade"></div>
+        <div class="container cta__inner">
+          <h2 class="h-section">
+            מחכה לפגוש אתכם וליצור אתכם רגעים שישארו לתמיד.
+          </h2>
+          <div class="btn-row">
+            <button class="btn btn--ivory" type="button" data-open-modal>
+              לתיאום צילום
+            </button>
+            <a
+              class="btn btn--ghost"
+              data-wa
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              >וואטסאפ</a
+            >
           </div>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
+    <!-- ── Footer ─────────────────────────────────────────────────────────── -->
     <footer class="site-footer">
-      <a class="footer-logo" href="index.html"
-        ><img id="footer-logo-img" src="" alt="Elite Captures"
+      <a href="index.html"
+        ><img src="page_pics/regular_logo.png" alt="Avishag Zeitoun"
       /></a>
       <ul class="footer-nav">
         <li><a href="index.html">בית</a></li>
         <li><a href="portfolio.html">תיק עבודות</a></li>
-        <li><a href="about.html">אודות</a></li>
+        <li><a href="about.html">אודות וחבילות</a></li>
         <li><a href="contact.html">צור קשר</a></li>
-      </ul>
-      <div class="footer-ig-row">
-        <a
-          id="footer-ig"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          class="footer-ig-btn"
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+        <li>
+          <a data-ig href="#" target="_blank" rel="noopener noreferrer"
+            >Instagram</a
           >
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-          </svg>
-        </a>
-        <span class="footer-ig-label">Instagram</span>
-      </div>
-
+        </li>
+      </ul>
       <p class="footer-copy">
-        © כל הזכויות שמורות לאבישג זייתון <span id="year"></span>.
+        © כל הזכויות שמורות לאבישג זייתון <span data-year></span>
       </p>
     </footer>
 
-    <!-- Booking Modal -->
-    <div id="booking-modal" role="dialog" aria-modal="true">
-      <div class="modal-backdrop"></div>
-      <div class="modal-panel">
-        <button id="modal-close" class="modal-close" aria-label="סגור">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+    <!-- ── Booking modal ──────────────────────────────────────────────────── -->
+    <div
+      class="modal"
+      id="booking-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <div class="modal__backdrop" data-close-modal></div>
+      <div class="modal__panel">
+        <button
+          class="modal__close"
+          type="button"
+          data-close-modal
+          aria-label="סגירה"
+        >
+          ×
         </button>
-        <h2 class="modal-title">הזמן סשן</h2>
-        <div id="modal-form">
-          <div class="step-dots">
-            <div class="step-dot active"></div>
-            <div class="step-dot"></div>
-          </div>
-          <div id="modal-form-step1" class="form-step">
-            <p
-              style="
-                font-family: var(--font-serif);
-                font-size: 22px;
-                color: var(--clr-primary);
-                margin: 0 0 16px;
-              "
-            >
-              איזה סשן מעניין אותך?
-            </p>
-            <button class="session-btn" data-session="pre-event">
-              <div>
-                <div class="session-label">בוק שלפני האירוע</div>
-                <div class="session-desc">צילום זוגי לפני החתונה</div>
-              </div>
-              <span class="session-btn-arrow">←</span>
+        <h2 class="h-card modal__title" id="modal-title">בואו נדבר</h2>
+        <div class="booking" id="modal-form" data-booking>
+          <div class="steps" aria-hidden="true"><span></span><span></span></div>
+          <div class="form-step" data-step="1">
+            <p class="form-step__title">איזה צילום מעניין אתכם?</p>
+            <button type="button" class="session" data-session="family">
+              <span
+                ><strong>צילומי משפחה</strong
+                ><small>800 / 1200 / 1500 ₪</small></span
+              ><span aria-hidden="true">←</span>
             </button>
-            <button class="session-btn" data-session="proposals">
-              <div>
-                <div class="session-label">הצעת נישואין</div>
-                <div class="session-desc">רגע שלא ישכח לעולם</div>
-              </div>
-              <span class="session-btn-arrow">←</span>
+            <button type="button" class="session" data-session="wedding">
+              <span
+                ><strong>צילום סושיאל לחתונה</strong
+                ><small>1200 / 1800 / 2200 ₪</small></span
+              ><span aria-hidden="true">←</span>
             </button>
-            <button class="session-btn" data-session="bar-mitzvah">
-              <div>
-                <div class="session-label">בר / בת מצווה</div>
-                <div class="session-desc">חגיגת נעורים עם סגנון</div>
-              </div>
-              <span class="session-btn-arrow">←</span>
+            <button type="button" class="session" data-session="pre-event">
+              <span
+                ><strong>בוק לפני האירוע</strong><small>צילום זוגי</small></span
+              ><span aria-hidden="true">←</span>
             </button>
-            <button class="session-btn" data-session="portrait">
-              <div>
-                <div class="session-label">פורטרט אישי</div>
-                <div class="session-desc">לאמנים ואנשי עסקים</div>
-              </div>
-              <span class="session-btn-arrow">←</span>
+            <button type="button" class="session" data-session="bar-mitzvah">
+              <span
+                ><strong>בר / בת מצווה</strong
+                ><small>חגיגה משפחתית</small></span
+              ><span aria-hidden="true">←</span>
             </button>
           </div>
-          <div id="modal-form-step2" class="form-step">
-            <p
-              style="
-                font-family: var(--font-serif);
-                font-size: 22px;
-                color: var(--clr-primary);
-                margin: 0 0 16px;
-              "
-            >
-              השאירו פרטים
-            </p>
+          <div class="form-step" data-step="2">
+            <p class="form-picked"></p>
             <form>
-              <div class="form-row" style="margin-bottom: 16px">
+              <div class="field-row">
                 <input
-                  class="input-field"
-                  type="text"
+                  class="field"
                   name="name"
+                  required
                   placeholder="שם מלא *"
-                  required
-                /><input
-                  class="input-field"
-                  type="tel"
-                  name="phone"
-                  placeholder="05X-XXXXXXX *"
-                  dir="ltr"
-                  style="text-align: right"
-                  required
+                  autocomplete="name"
                 />
-              </div>
-              <div style="margin-bottom: 16px">
                 <input
-                  class="input-field"
-                  type="date"
-                  name="date"
-                  style="color-scheme: light"
+                  class="field"
+                  name="phone"
+                  type="tel"
+                  required
+                  placeholder="טלפון *"
+                  autocomplete="tel"
                 />
               </div>
+              <input
+                class="field"
+                name="date"
+                type="date"
+                aria-label="תאריך מועדף"
+              />
               <textarea
-                class="input-field"
+                class="field"
                 name="message"
                 rows="3"
-                placeholder="ספרו לנו קצת על החזון שלכם..."
-                style="margin-bottom: 4px"
+                placeholder="ספרו לי קצת עליכם…"
               ></textarea>
-              <button class="btn-submit" type="submit">שלח לוואצאפ ←</button>
-              <button class="btn-back" type="button">→ חזור</button>
+              <button
+                class="btn btn--cocoa btn--block"
+                type="submit"
+                style="margin-top: 16px"
+              >
+                שליחה בוואטסאפ
+              </button>
             </form>
+            <button type="button" class="form-back">→ חזרה</button>
           </div>
-          <div
-            id="modal-form-success"
-            class="form-success"
-            style="display: none"
-          >
-            <svg
-              width="56"
-              height="56"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+          <div class="form-success" data-step="done">
+            <p class="h-card">ההודעה מוכנה בוואטסאפ!</p>
+            <p>אם החלון לא נפתח, בדקו שחסימת חלונות קופצים כבויה.</p>
+            <button
+              type="button"
+              class="link-line"
+              data-reset
+              style="
+                background: none;
+                border: 0;
+                border-bottom: 1px solid;
+                cursor: pointer;
+                font: inherit;
+              "
             >
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <polyline points="22 4 12 14.01 9 11.01" />
-            </svg>
-            <h3>הפניה נשלחה לוואצאפ!</h3>
-            <p>אם החלון לא נפתח, בדקו שחסימת פופ-אפ כבויה.</p>
-            <button class="btn-reset">שליחה נוספת</button>
+              שליחה נוספת
+            </button>
           </div>
         </div>
       </div>
     </div>
 
     <script src="js/gallery-data.js"></script>
-    <script>
-      document
-        .querySelectorAll('[id$="-ig"]')
-        .forEach((el) => (el.href = SITE_CONFIG.instagramUrl));
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      // Show middle detail image on md+
-      if (window.innerWidth >= 768) {
-        document.querySelector(".md-show").style.display = "block";
-      }
-    </script>
     <script src="js/main.js"></script>
   </body>
 </html>
