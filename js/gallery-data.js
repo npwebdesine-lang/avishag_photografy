@@ -21,7 +21,7 @@ const SESSION_TYPES = [
 const GALLERY_CATEGORIES = [
   { id: "all", label: "הכל" },
   { id: "family", label: "משפחה" },
-  { id: "wedding", label: "חתונות" },
+  { id: "wedding", label: "סושיאל חתונות" },
   { id: "details", label: "פרטים קטנים" },
 ];
 
